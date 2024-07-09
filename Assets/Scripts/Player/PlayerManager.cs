@@ -53,7 +53,7 @@ public class PlayerManager : MonoBehaviour
     SpriteRenderer spriteRenderer;
     PlayerAttack playerAttack;
     FlipX flipX;
-
+    public GameObject deathPrefab;
     public bool isRight;
     // Start is called before the first frame update
     void Start()
@@ -66,6 +66,7 @@ public class PlayerManager : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         flipX=GetComponent<FlipX>();
         healthUp.Init();
+        Time.timeScale = 1.0f;
         //buff.num = 1;
         //buff.time = 99999;
         //buffList.Add(buff);
@@ -75,6 +76,7 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   /*eBuff.Ebuff(ref buffList,ref damage,ref  speed, ref  criticalStrikeRate, ref  missRate, ref  shield, ref  maxHealth);*/
+        
         if (hasAttackTime <=0)
         {
             speed2= speed*10;
@@ -98,9 +100,19 @@ public class PlayerManager : MonoBehaviour
             hasAttackTime = attackTime;
             playerAttack.Attack(direction);
         }
-        
+
         //¸üÐÂÑªÁ¿UI
         //healthUp.Updatehealth(health);
+        if (health <= 0)
+        {
+            if (Time.timeScale == 1)
+            {
+                Time.timeScale = 0;
+                GameObject G = Instantiate(deathPrefab);
+                G.SetActive(true);
+            }
+            
+        }
         flipX.flipx(spriteRenderer,direction);
 
     }
