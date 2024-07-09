@@ -10,7 +10,7 @@ public class DogAttack : MonoBehaviour
     private float nextAttackTime = 0.0f; // 下次可以攻击的时间
     private void Awake()
     {
-        target = GameObject.Find("player").transform;
+        target = GameObject.Find("Player").transform;
     }
     private void Update()
     {
