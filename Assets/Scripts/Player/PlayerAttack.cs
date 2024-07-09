@@ -4,12 +4,14 @@ using TMPro;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
-{   
-    public float attackSpeed; 
+{
+    public GameObject player;
+    PlayerManager playerManager;
+    public float attackSpeed;
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerManager = player.GetComponent<PlayerManager>();
     }
 
     // Update is called once per frame
@@ -17,8 +19,9 @@ public class PlayerAttack : MonoBehaviour
     {
         
     }
-    public void Attack(int damage,Vector2 target)
+    public void Attack(Vector2 target)
     {
-        transform.position = Vector2.MoveTowards(transform.position, target, attackSpeed * Time.deltaTime);
+        //transform.position = Vector2.MoveTowards(transform.position, target, attackSpeed * Time.deltaTime);
+        playerManager.theRB.velocity = target.normalized*attackSpeed;
     }
 }

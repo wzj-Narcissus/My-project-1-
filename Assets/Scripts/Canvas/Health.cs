@@ -17,7 +17,7 @@ public class Health : MonoBehaviour
     {
         
     }
-    public void Updatehealth(int health,int maxHealth)
+    public void Updatehealth(float health,float maxHealth)
     {
         healthText.text ="Current Health:"+health.ToString()+"/"+maxHealth.ToString();
     }
