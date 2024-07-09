@@ -46,12 +46,11 @@ public class DogAttack : MonoBehaviour
     private void Update()
     {
         if(Hp<=0)Destroy(gameObject);
-        if (playerManager.hasAttackTime <= 0&&hasRushTime<0)
+        if (playerManager.hasAttackTime <= 0&&hasRushTime<=0)
         {
             Physics2D.IgnoreCollision(dogCol, playerCol, true);
             //Physics2D.IgnoreCollision(dogColClone, playerCol, true);
         }
-        // 检查玩家是否在攻击范围内
         if (flag == true)
         {
             if (hasGetDamageTime > 0)
@@ -103,6 +102,7 @@ public class DogAttack : MonoBehaviour
         }
         else if(collision.gameObject.tag == "player" && hasRushTime <= 0)
         {
+            Debug.Log("1");
             GetDamaged();
             flag = true;
             hasGetDamageTime = 0.5f;

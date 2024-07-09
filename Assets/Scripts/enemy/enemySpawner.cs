@@ -12,11 +12,11 @@ public class enemySpawner : MonoBehaviour
     public float timetospawn;
     private float spawnCounter;
     public Transform minSpawn, maxSpawn;
-    private int sign;
-    private float counttime;
-    private float counttime1;
-    private float counttime2;
-    private int key;
+    public int sign;
+    public float counttime;
+    public float counttime1;
+    public float counttime2;
+    public int key;
      // Start is called before the first frame update
     void Start()
     {
