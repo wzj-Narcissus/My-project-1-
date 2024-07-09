@@ -1170,7 +1170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startScene: PlayScene
-  mainMenu: PlayScene
+  mainMenu: Main menu
 --- !u!1 &1988572879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,7 +1446,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 864650526366347610, guid: 693b302f3fc6b6e4182e5ba8665ecc27, type: 3}
       propertyPath: mainMenu
-      value: PlayScene
+      value: Main menu
       objectReference: {fileID: 0}
     - target: {fileID: 864650526366347610, guid: 693b302f3fc6b6e4182e5ba8665ecc27, type: 3}
       propertyPath: startScene
