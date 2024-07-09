@@ -776,15 +776,14 @@ MonoBehaviour:
   enemy2: {fileID: 1402820910}
   enemy3: {fileID: 1402820910}
   testenemy: {fileID: 0}
-  timetospawn: 0.8
-  spawnCounter: 0
-  spawnPos: {x: 0, y: 0}
+  timetospawn: 0.6
   minSpawn: {fileID: 789046689}
   maxSpawn: {fileID: 1021726947}
   sign: 0
   counttime: 0
   counttime1: 0
   counttime2: 0
+  key: 0
 --- !u!4 &1100043983
 Transform:
   m_ObjectHideFlags: 0
@@ -1586,6 +1585,14 @@ PrefabInstance:
     - target: {fileID: 5704766784796043788, guid: 837ac3e60c7b93349952160bda27d1b6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8781741028881427684, guid: 837ac3e60c7b93349952160bda27d1b6, type: 3}
+      propertyPath: rushNum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8781741028881427684, guid: 837ac3e60c7b93349952160bda27d1b6, type: 3}
+      propertyPath: attackTime
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8781741028881427684, guid: 837ac3e60c7b93349952160bda27d1b6, type: 3}
       propertyPath: deathPrefab
