@@ -4,31 +4,91 @@ using UnityEngine;
 
 public class enemySpawner : MonoBehaviour
 {
-    public GameObject enemytospawn;
+    public GameObject enemy1;
+    public GameObject enemy2;
+    public GameObject enemy3;
+    public GameObject testenemy;
 
     public float timetospawn;
     private float spawnCounter;
     private Vector2 spawnPos;
     public Transform minSpawn, maxSpawn;
-
+    private int sign;
+    private float counttime;
+    private float counttime1;
+    private float counttime2;
      // Start is called before the first frame update
     void Start()
     {
+        sign = 1;
         spawnCounter = timetospawn;
+        counttime = 13;
+        counttime1 = 0;
+        counttime2 = 2;
     }
 
     // Update is called once per frame
     void Update()
     {
-        spawnPos=new Vector2(Random.Range(10, 20), Random.Range(10, 20));
-         spawnCounter -= Time.deltaTime;
-        if(spawnCounter <=0)
+
+        if (GameObject.FindWithTag("enemy1") == null&&sign==1)
         {
+            counttime = 14.8f;
+            counttime1 = 0;
             spawnCounter = timetospawn;
-
-            Instantiate(enemytospawn,Selectpoint(),transform.rotation);
-
+            sign += 1;
         }
+
+        if (GameObject.FindWithTag("enemy2") == null && sign == 2)
+        {
+            counttime = 14.8f;
+            counttime1 = 0;
+            spawnCounter = timetospawn;
+            sign += 1;
+        }
+
+        counttime += Time.deltaTime;
+        if (counttime > 15)
+        {
+           
+               counttime1 += Time.deltaTime;
+            if (counttime1 < 2)
+            {
+                spawnCounter-= Time.deltaTime;
+
+                if (spawnCounter < 0)
+                {
+                    switch (sign)
+                    {
+                        case 1:
+                            Instantiate(enemy1, Selectpoint(), transform.rotation);
+                            break;
+                        case 2:
+                            Instantiate(enemy2, Selectpoint(), transform.rotation);
+                            break;
+                        case 3:
+                            Instantiate(enemy3, Selectpoint(), transform.rotation);
+                            break;
+                        default:
+                            break;
+                    }
+                    spawnCounter = timetospawn;
+                }
+              
+            }
+            else
+            {
+                counttime = 2;
+                counttime1 = 0;
+                spawnCounter = timetospawn;
+                sign++;
+            }
+           
+        }
+        else
+        {
+
+        } 
     }
 
     public Vector3 Selectpoint()
