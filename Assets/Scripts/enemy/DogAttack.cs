@@ -23,7 +23,6 @@ public class DogAttack : MonoBehaviour
     private void Awake()
     {
         target = GameObject.Find("Player").transform;
-<<<<<<< HEAD
 
 
         playerManager=GameObject.Find("Player").GetComponent<PlayerManager>();
@@ -33,8 +32,7 @@ public class DogAttack : MonoBehaviour
         playerCol = GameObject.Find("Player").GetComponent<Collider2D>();
         Physics2D.IgnoreCollision(dogCol, playerCol, true);
 
-=======
->>>>>>> 4c05eb58ff59ba75105f61b1bc80c2fc9c67e657
+
     }
     private void Update()
     {
