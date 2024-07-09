@@ -772,9 +772,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd67a547382341141b288273b46a781a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy1: {fileID: 1402820910}
-  enemy2: {fileID: 1402820910}
-  enemy3: {fileID: 1402820910}
+  enemy1: {fileID: 2454754100670577600, guid: ea6f60426cc873a498c825b0ebb43275, type: 3}
+  enemy2: {fileID: 2454754100670577600, guid: ea6f60426cc873a498c825b0ebb43275, type: 3}
+  enemy3: {fileID: 2454754100670577600, guid: ea6f60426cc873a498c825b0ebb43275, type: 3}
   testenemy: {fileID: 0}
   timetospawn: 0.6
   minSpawn: {fileID: 789046689}
@@ -1024,11 +1024,6 @@ MonoBehaviour:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8121523658913770911, guid: ecea542497762d14c852406b99ef0465, type: 3}
   m_PrefabInstance: {fileID: 3239736253351965464}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1402820910 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2454754100670577600, guid: ea6f60426cc873a498c825b0ebb43275, type: 3}
-  m_PrefabInstance: {fileID: 8315191117259614079}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1491837407 stripped
 GameObject:
@@ -2311,7 +2306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2454754100670577600, guid: ea6f60426cc873a498c825b0ebb43275, type: 3}
       propertyPath: m_Name
-      value: Enemy_Dog
+      value: dog
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
