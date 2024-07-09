@@ -85,10 +85,6 @@ public class enemySpawner : MonoBehaviour
             }
            
         }
-        else
-        {
-
-        } 
     }
 
     public Vector3 Selectpoint()
