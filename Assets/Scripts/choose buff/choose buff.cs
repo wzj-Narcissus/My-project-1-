@@ -15,6 +15,8 @@ public class ChooseBuff : MonoBehaviour
     public float criticalStrikeRate;//初始暴击率
     public float missRate;//初始闪避率
     public float shield;//护盾
+    public float damageMulti = 1;//伤害倍率
+    public float hurtMulti = 1;//受伤倍率
 
 
 
@@ -49,9 +51,9 @@ public class ChooseBuff : MonoBehaviour
 
             while (x == y || y == z || z == x)
             {
-                x = Random.Range(0, 14);
-                y = Random.Range(0, 14);
-                z = Random.Range(0, 14);
+                x = Random.Range(0, 13);
+                y = Random.Range(0, 13);
+                z = Random.Range(0, 13);
             }
 
             Buffs temp;
@@ -190,6 +192,20 @@ public class ChooseBuff : MonoBehaviour
             case 9:
                 maxHealth += 1f;
                 break;
+            case 10:
+                damageMulti += 1;
+                hurtMulti += 1;
+                break;
+            case 11:
+                speed -= 0.5f;
+                hurtMulti *= 0.5f;
+                damageMulti *= 0.5f;
+                break;
+            case 12:
+                speed += 3f;
+                hurtMulti *= 2;
+                break;
+
 
             default:
                 break;
