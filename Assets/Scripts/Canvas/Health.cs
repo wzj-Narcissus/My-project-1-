@@ -40,6 +40,7 @@ public class Health : MonoBehaviour
         Destroy(last);
         switch (hp)
         {
+            
             case 1:
                 last = Instantiate(Prefab0_5);
                 
@@ -74,6 +75,8 @@ public class Health : MonoBehaviour
             case 10:
                 last = Instantiate(Prefab5);
                 break;
+            default:
+                return;
         }
         spriteRenderer = last.GetComponent<SpriteRenderer>();
         spriteRenderer.sortingOrder = 2;

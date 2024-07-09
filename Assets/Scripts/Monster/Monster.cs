@@ -24,19 +24,19 @@ public class Monster : MonoBehaviour
         {
             Destroy(gameObject);
             playerManager.experience++;
-            if (Random.Range(0, 100) < 60)
-            {
-                playerManager.money++;
-            }
+            
         }
     }
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
         if (collision.gameObject.tag == "player" && playerManager.hasAttackTime > 0)
         {
             Hp -= playerManager.damage*playerManager.damageMulti;
+            if (Random.Range(0, 100) < 60)
+            {
+                playerManager.money++;
+            }
         }
         else
         {

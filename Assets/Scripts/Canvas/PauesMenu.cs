@@ -33,7 +33,7 @@ public class PauseMenu : MonoBehaviour
         //else
             Time.timeScale = 0;
             GameObject p=Instantiate(preFab);
-        p.SetActive(true);
+            p.SetActive(true);
         
 
     }
