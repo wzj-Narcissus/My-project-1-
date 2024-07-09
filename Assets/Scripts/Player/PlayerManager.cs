@@ -173,6 +173,7 @@ public class PlayerManager : MonoBehaviour
             else
             {
                 health -= damage * hurtMulti;
+                //Debug.Log("h");
             }
         }
         else

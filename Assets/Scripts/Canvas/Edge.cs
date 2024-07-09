@@ -24,12 +24,13 @@ public class Edge : MonoBehaviour
     //Collider2D c1, c2;
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.tag == "player") { playerManager.health = 0; }
         //if (hasHurtTime <= 0)
         //{
         //playerManager.health -= playerManager.hurtMulti;
         //playerManager.UpdateHp();
         //Physics2D.IgnoreCollision(collision.collider, collision.otherCollider, true);
-        playerManager.health = 0;
+        
         
         //c1 = collision.collider;
         //c2 = collision.otherCollider;
