@@ -16,6 +16,7 @@ public class Health : MonoBehaviour
     public GameObject Prefab4;
     public GameObject Prefab5;
     GameObject last;
+    SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,8 @@ public class Health : MonoBehaviour
     public void Init()
     {
         last=Instantiate(Prefab3);
+        spriteRenderer = last.GetComponent<SpriteRenderer>();
+        spriteRenderer.sortingOrder = 2;
     }
     public void UpdateHp(int hp)
     {
@@ -39,6 +42,8 @@ public class Health : MonoBehaviour
         {
             case 1:
                 last = Instantiate(Prefab0_5);
+                
+                
                 break;
             case 2:
                 last = Instantiate(Prefab1);
@@ -70,5 +75,7 @@ public class Health : MonoBehaviour
                 last = Instantiate(Prefab5);
                 break;
         }
+        spriteRenderer = last.GetComponent<SpriteRenderer>();
+        spriteRenderer.sortingOrder = 2;
     }
 }
