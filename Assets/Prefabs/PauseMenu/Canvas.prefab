@@ -1131,5 +1131,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4122288003199004bbe4aa982d01fab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: 
-  startScene: 
+  mainMenu: PlayScene
+  startScene: PlayScene
