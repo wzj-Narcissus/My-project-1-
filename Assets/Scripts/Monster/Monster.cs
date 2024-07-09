@@ -32,14 +32,14 @@ public class Monster : MonoBehaviour
 
         if (collision.gameObject.tag == "player" && playerManager.hasAttackTime > 0)
         {
-            Hp -= playerManager.realDamage;
+            Hp -= playerManager.damage*playerManager.damageMulti;
         }
         else
         {
             Physics2D.IgnoreCollision(collision.collider, collision.otherCollider,true);
             c1=collision.collider;
             c2=collision.otherCollider;
-            Invoke("ResetCollision", 0.1f);
+            Invoke("ResetCollision", 0.2f);
         }
     }
     void ResetCollision()

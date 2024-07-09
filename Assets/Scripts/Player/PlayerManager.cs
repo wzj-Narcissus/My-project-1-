@@ -31,16 +31,17 @@ public class PlayerManager : MonoBehaviour
     public float criticalStrikeRate;//初始暴击率
     public float missRate;//初始闪避率
     public float shield;//护盾
-
-
+    public float damageMulti=1;//伤害倍率
+    public float hurtMulti=1;//受伤倍率
+    //public float hurtnum ;//
 
     //下面是buff后的真实参数
-    public float realSpeed;//速度
-    public float realDamage;//野猪初始攻击力
-    public float realHealth;//生命
-    public float realCriticalStrikeRate;//初始暴击率
-    public float realMissRate;//初始闪避率
-    public float realShield;//护盾
+    //public float realSpeed;//速度
+    //public float realDamage;//野猪初始攻击力
+    //public float realHealth;//生命
+    //public float realCriticalStrikeRate;//初始暴击率
+    //public float realMissRate;//初始闪避率
+    //public float realShield;//护盾
 
     public float experience;//经验
 
@@ -49,8 +50,11 @@ public class PlayerManager : MonoBehaviour
 
     Health healthUp;
     EBuff eBuff;
-
+    SpriteRenderer spriteRenderer;
     PlayerAttack playerAttack;
+    FlipX flipX;
+
+    public bool isRight;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +63,9 @@ public class PlayerManager : MonoBehaviour
         playerAttack = GetComponent<PlayerAttack>();
         healthUp = GameObject.Find("Health").GetComponent<Health>();
         eBuff= GetComponent<EBuff>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        flipX=GetComponent<FlipX>();
+        healthUp.Init();
         //buff.num = 1;
         //buff.time = 99999;
         //buffList.Add(buff);
@@ -76,6 +83,7 @@ public class PlayerManager : MonoBehaviour
             float distance = Vector2.Distance(transform.position, targetPosition);
 
             float moveSpeed = speed2 * (distance / maxDistance);
+            if(moveSpeed>speed)moveSpeed=speed;
             direction = targetPosition - new Vector2(transform.position.x, transform.position.y);
             //transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
             theRB.velocity=direction*moveSpeed;
@@ -90,10 +98,10 @@ public class PlayerManager : MonoBehaviour
             hasAttackTime = attackTime;
             playerAttack.Attack(direction);
         }
-
+        
         //更新血量UI
-        healthUp.Updatehealth(health,maxHealth);
-
+        //healthUp.Updatehealth(health);
+        flipX.flipx(spriteRenderer,direction);
 
     }
 
@@ -103,7 +111,8 @@ public class PlayerManager : MonoBehaviour
         {
             if(hasAttackTime>0)
             {
-                health--;
+                health-=hurtMulti;
+                healthUp.UpdateHp((int)(2*health));
             }
         }
     }
