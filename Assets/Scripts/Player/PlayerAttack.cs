@@ -23,5 +23,6 @@ public class PlayerAttack : MonoBehaviour
     {
         //transform.position = Vector2.MoveTowards(transform.position, target, attackSpeed * Time.deltaTime);
         playerManager.theRB.velocity = target.normalized*attackSpeed;
+        
     }
 }

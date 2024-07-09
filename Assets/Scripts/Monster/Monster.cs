@@ -24,6 +24,10 @@ public class Monster : MonoBehaviour
         {
             Destroy(gameObject);
             playerManager.experience++;
+            if (Random.Range(0, 100) < 60)
+            {
+                playerManager.money++;
+            }
         }
     }
     

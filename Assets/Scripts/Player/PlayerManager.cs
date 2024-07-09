@@ -44,7 +44,7 @@ public class PlayerManager : MonoBehaviour
     //public float realShield;//»¤¶Ü
 
     public float experience;//¾­Ñé
-
+    public int money;
 
     public Buff buff;
 
@@ -112,10 +112,14 @@ public class PlayerManager : MonoBehaviour
             if(hasAttackTime>0)
             {
                 health-=hurtMulti;
-                healthUp.UpdateHp((int)(2*health));
+                UpdateHp();
             }
         }
     }
+    public void UpdateHp()
+    {
+        healthUp.UpdateHp((int)(2 * health));
+    } 
 
 
 
