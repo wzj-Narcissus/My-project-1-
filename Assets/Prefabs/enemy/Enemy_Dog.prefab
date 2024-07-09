@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 563141700668239585}
   - component: {fileID: 1296048538801902003}
   m_Layer: 0
-  m_Name: dog
+  m_Name: Enemy_Dog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

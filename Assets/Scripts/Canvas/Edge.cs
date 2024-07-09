@@ -30,9 +30,10 @@ public class Edge : MonoBehaviour
         //playerManager.UpdateHp();
         //Physics2D.IgnoreCollision(collision.collider, collision.otherCollider, true);
         playerManager.health = 0;
-            //c1 = collision.collider;
-            //c2 = collision.otherCollider;
-            //Invoke("ResetCollision", 1f);
+        
+        //c1 = collision.collider;
+        //c2 = collision.otherCollider;
+        //Invoke("ResetCollision", 1f);
         //}
     }
     //void ResetCollision()

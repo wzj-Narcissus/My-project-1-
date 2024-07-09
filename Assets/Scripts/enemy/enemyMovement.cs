@@ -8,7 +8,7 @@ public class enemyMovement : MonoBehaviour
     public float speed = 0.01f; // 接近目标的速度
     private void Awake()
     {
-        target = GameObject.Find("player").transform;
+        target = GameObject.Find("Player").transform;
     }
 
     private void Update()

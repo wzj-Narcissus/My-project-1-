@@ -30,7 +30,7 @@ public class PlayerManager : MonoBehaviour
     public float maxHealth ;//最大生命
     public float criticalStrikeRate;//初始暴击率
     public float missRate;//初始闪避率
-    public float shield;//护盾
+    public int shield;//护盾
     public float damageMulti=1;//伤害倍率
     public float hurtMulti=1;//受伤倍率
     //public float hurtnum ;//
@@ -55,6 +55,12 @@ public class PlayerManager : MonoBehaviour
     FlipX flipX;
     public GameObject deathPrefab;
     public bool isRight;
+
+    //Collider2D playerCol;
+    //Collider2D dogCol;
+    //Collider2D dogColClone;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,7 +72,16 @@ public class PlayerManager : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         flipX=GetComponent<FlipX>();
         healthUp.Init();
+
+
+
+        /*dogCol = GameObject.Find("Enemy_Dog").GetComponent<Collider2D>();*///怪物碰撞体
+
+
+
         Time.timeScale = 1.0f;
+        //playerCol = GetComponent<Collider2D>();
+
         //buff.num = 1;
         //buff.time = 99999;
         //buffList.Add(buff);
@@ -79,7 +94,14 @@ public class PlayerManager : MonoBehaviour
         
         if (hasAttackTime <=0)
         {
-            speed2= speed*10;
+
+
+            //dogColClone = GameObject.Find("Enemy_Dog(Clone)").GetComponent<Collider2D>();
+            //Physics2D.IgnoreCollision(dogCol, playerCol, true);
+            //Physics2D.IgnoreCollision(dogColClone, playerCol, true);
+
+
+            speed2 = speed*10;
             targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             float distance = Vector2.Distance(transform.position, targetPosition);
@@ -97,12 +119,18 @@ public class PlayerManager : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
+
+
+            //Physics2D.IgnoreCollision(dogCol, playerCol, false);
+            //Physics2D.IgnoreCollision(dogColClone, playerCol, false);
+
+
+
             hasAttackTime = attackTime;
             playerAttack.Attack(direction);
         }
 
         //更新血量UI
-        //healthUp.Updatehealth(health);
         if (health <= 0)
         {
             if (Time.timeScale == 1)
@@ -111,27 +139,62 @@ public class PlayerManager : MonoBehaviour
                 GameObject G = Instantiate(deathPrefab);
                 G.SetActive(true);
             }
-            
+
         }
         flipX.flipx(spriteRenderer,direction);
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "monster")
-        {
-            if(hasAttackTime>0)
-            {
-                health-=hurtMulti;
-                UpdateHp();
-            }
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.tag == "monster")
+    //    {
+    //        if(hasAttackTime>0)
+    //        {
+    //            health-=hurtMulti;
+    //            UpdateHp();
+    //        }
+    //    }
+    //}
     public void UpdateHp()
     {
         healthUp.UpdateHp((int)(2 * health));
     } 
+
+    public void GetDamaged(float damage)
+    {
+        if (Random.Range(0, 100) > missRate)
+        {
+            if (shield >= 1)
+            {
+                Debug.Log("Shield!");
+                shield--;
+            }
+            else
+            {
+                health -= damage * hurtMulti;
+            }
+        }
+        else
+        {
+            Debug.Log("Miss!");
+        }
+        if (health <= 0)
+        {
+            if (Time.timeScale == 1)
+            {
+                Time.timeScale = 0;
+                GameObject G = Instantiate(deathPrefab);
+                G.SetActive(true);
+            }
+
+        }
+        else
+        {
+            UpdateHp();
+        }
+
+    }
 
 
 
