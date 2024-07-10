@@ -145,6 +145,8 @@ public class PlayerManager : MonoBehaviour
             }
 
         }
+        UpdateHp();
+        
         flipX.flipx(spriteRenderer,direction);
 
     }
@@ -206,7 +208,7 @@ public class PlayerManager : MonoBehaviour
         speed = PlayerPrefs.GetFloat("1", 2f);
         damage = PlayerPrefs.GetFloat("2", 1f);
         health = PlayerPrefs.GetFloat("3", 3f);
-        maxHealth = PlayerPrefs.GetFloat("4", 5f);
+        maxHealth = PlayerPrefs.GetFloat("4", 3f);
         criticalStrikeRate = PlayerPrefs.GetFloat("5", 5f);
         missRate = PlayerPrefs.GetFloat("6", 5f);
         shield = PlayerPrefs.GetFloat("7", 0f);
