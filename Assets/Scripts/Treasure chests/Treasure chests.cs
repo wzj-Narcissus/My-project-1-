@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -21,24 +22,212 @@ public class Treasurechests : MonoBehaviour
 
     public string nextname;
 
-    public Button buttons;
-
-
-    private struct Buffs
+    public struct Buffs
     {
         public string sometext;
         public string name;
     }
 
+    public int x;
+    public Button _button;
+
+    public List<Buffs> mybuffs = new List<Buffs>();
+
+
+    private float counttime=0;
+    int sign = 0;
     // Start is called before the first frame update
     void Start()
     {
-        
+        _button =GameObject.Find("Button").GetComponent<Button>();
+
+
+        x = Random.Range(0, 13);
+
+        Buffs temp;
+
+        temp = new Buffs();
+        temp.sometext = "攻击力";
+        temp.name = "攻击增加0.5";
+        mybuffs.Add(temp);
+
+        temp = new Buffs();
+        temp.sometext = "攻击力";
+        temp.name = "攻击减少0.5";
+        mybuffs.Add(temp);
+
+        temp = new Buffs();
+        temp.sometext = "暴击率";
+        temp.name = "暴击率提升20%";
+        mybuffs.Add(temp);
+
+        temp = new Buffs();
+        temp.sometext = "暴击率";
+        temp.name = "暴击率减少20%";
+        mybuffs.Add(temp);
+
+
+        temp = new Buffs();
+        temp.sometext = "闪避率";
+        temp.name = "闪避率提升15%";
+        mybuffs.Add(temp);
+
+        temp = new Buffs();
+        temp.sometext = "闪避率";
+        temp.name = "闪避率减少15%";
+        mybuffs.Add(temp);
+
+
+        temp = new Buffs();
+        temp.sometext = "移速";
+        temp.name = "移速提升0.5点";
+        mybuffs.Add(temp);
+
+
+        temp = new Buffs();
+        temp.sometext = "移速";
+        temp.name = "移速减少0.5点";
+        mybuffs.Add(temp);
+
+        temp = new Buffs();
+        temp.sometext = "生命上限";
+        temp.name = "生命上限提升1点";
+        mybuffs.Add(temp);
+
+        temp = new Buffs();
+        temp.sometext = "生命上限";
+        temp.name = "生命上限减少1点";
+        mybuffs.Add(temp);
+
+        temp = new Buffs();
+        temp.sometext = "风险";
+        temp.name = "角色造成的所有伤害变为原来的2倍，同时受到的伤害变为原来的2倍";
+        mybuffs.Add(temp);
+
+        temp = new Buffs();
+        temp.sometext = "风险";
+        temp.name = "收到的伤害减少0.5点，同时造成的碰撞伤害减少0.5点、速度减少0.5点";
+        mybuffs.Add(temp);
+
+        temp = new Buffs();
+        temp.sometext = "风险";
+        temp.name = "移动速度提高3点，同时收到的伤害变为原来的2倍";
+        mybuffs.Add(temp);
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (sign == 0)
+        {
+            _button.GetComponentInChildren<Text>().text = "恭喜你获得一个随机buff";
+
+            sign = 1;
+        }
+        counttime += Time.deltaTime;
+        if(counttime > 1.5f)
+        {
+            _button.GetComponentInChildren<Text>().text = "Buff: " + mybuffs[x].sometext + " - " + mybuffs[x].name;
+        }
+        if(counttime >4f)
+        {
+            SceneManager.LoadScene(nextname);
+        }
         
     }
+
+
+
+    public void change(int x)
+    {
+        switch (x)
+        {
+            case 0:
+                damage = (float)(damage + 0.5);
+                break;
+            case 1:
+                damage = (float)(damage - 0.5);
+
+                break;
+            case 2:
+                criticalStrikeRate += 0.2f;
+                break;
+            case 3:
+                criticalStrikeRate -= 0.2f;
+                break;
+            case 4:
+                missRate += 0.15f;
+                break;
+            case 5:
+                missRate -= 0.15f;
+                break;
+            case 6:
+                speed += 0.5f;
+                break;
+            case 7:
+                speed -= 0.5f;
+                break;
+            case 8:
+                maxHealth += 1f;
+                health += 1f;
+                break;
+            case 9:
+                maxHealth -= 1f;
+                health -= 1f;
+                break;
+            case 10:
+                damageMulti += 1;
+                hurtMulti += 1;
+                break;
+            case 11:
+                speed -= 0.5f;
+                hurtMulti *= 0.5f;
+                damageMulti *= 0.5f;
+                break;
+            case 12:
+                speed += 3f;
+                hurtMulti *= 2;
+                break;
+
+
+            default:
+                break;
+        }
+    }
+
+
+    void getdata()
+    {
+        speed = PlayerPrefs.GetFloat("1", 0f);
+        damage = PlayerPrefs.GetFloat("2", 0f);
+        health = PlayerPrefs.GetFloat("3", 0f);
+        maxHealth = PlayerPrefs.GetFloat("4", 0f);
+        criticalStrikeRate = PlayerPrefs.GetFloat("5", 0f);
+        missRate = PlayerPrefs.GetFloat("6", 0f);
+        shield = PlayerPrefs.GetFloat("7", 0f);
+    }
+
+
+    public void loaddate(int x)
+    {
+        PlayerPrefs.SetFloat("1", speed);
+        PlayerPrefs.SetFloat("2", damage);
+        PlayerPrefs.SetFloat("3", health);
+        PlayerPrefs.SetFloat("4", maxHealth);
+        PlayerPrefs.SetFloat("5", criticalStrikeRate);
+        PlayerPrefs.SetFloat("6", missRate);
+        PlayerPrefs.SetFloat("7", shield);
+
+    }
+
+
+
+
+
+
+
+
+
 }

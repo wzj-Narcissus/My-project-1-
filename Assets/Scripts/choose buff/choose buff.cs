@@ -44,15 +44,15 @@ public class ChooseBuff : MonoBehaviour
         if (buttons[0] != null && buttons[1] != null && buttons[2] != null)
         {
 
-            x = Random.Range(0, 13);
-            y = Random.Range(0, 13);
-            z = Random.Range(0, 13);
+            x = Random.Range(0, 8);
+            y = Random.Range(0, 8);
+            z = Random.Range(0, 8);
 
             while (x == y || y == z || z == x)
             {
-                x = Random.Range(0, 13);
-                y = Random.Range(0, 13);
-                z = Random.Range(0, 13);
+                x = Random.Range(0, 8);
+                y = Random.Range(0, 8);
+                z = Random.Range(0, 8);
             }
 
             Buffs temp;
@@ -62,19 +62,10 @@ public class ChooseBuff : MonoBehaviour
             temp.name = "攻击增加0.5";
             mybuffs.Add(temp);
 
-            temp = new Buffs();
-            temp.sometext = "攻击力";
-            temp.name = "攻击增加1";
-            mybuffs.Add(temp);
 
             temp = new Buffs();
             temp.sometext = "暴击率";
             temp.name = "暴击率提升20%";
-            mybuffs.Add(temp);
-
-            temp = new Buffs();
-            temp.sometext = "暴击率";
-            temp.name = "暴击率提升50%";
             mybuffs.Add(temp);
 
 
@@ -83,32 +74,20 @@ public class ChooseBuff : MonoBehaviour
             temp.name = "闪避率提升15%";
             mybuffs.Add(temp);
 
-            temp = new Buffs();
-            temp.sometext = "闪避率";
-            temp.name = "闪避率提升30%";
-            mybuffs.Add(temp);
 
 
             temp = new Buffs();
             temp.sometext = "移速";
-            temp.name = "移速提升至2.5";
+            temp.name = "移速提升0.5点";
             mybuffs.Add(temp);
 
 
-            temp = new Buffs();
-            temp.sometext = "移速";
-            temp.name = "移速提升至3";
-            mybuffs.Add(temp);
 
             temp = new Buffs();
             temp.sometext = "生命上限";
-            temp.name = "生命上限提升至4";
+            temp.name = "生命上限提升1点";
             mybuffs.Add(temp);
 
-            temp = new Buffs();
-            temp.sometext = "生命上限";
-            temp.name = "生命上限提升至5";
-            mybuffs.Add(temp);
 
             temp = new Buffs();
             temp.sometext = "风险";
@@ -164,45 +143,28 @@ public class ChooseBuff : MonoBehaviour
                 damage = (float)(damage + 0.5);
                 break;
             case 1:
-                damage = (float)(damage + 1);
-
+                criticalStrikeRate += 0.2f;
                 break;
             case 2:
-                criticalStrikeRate = 0.2f;
+                missRate += 0.15f;
                 break;
             case 3:
-                criticalStrikeRate = 0.5f;
-                break;
-            case 4:
-                missRate = 0.15f;
-                break;
-            case 5:
-                missRate = 0.3f;
-                break;
-            case 6:
                 speed += 0.5f;
                 break;
-            case 7:
-                speed += 1f;
-                break;
-            case 8:
-                maxHealth += 0.5f;
-                health += 0.5f;
-                break;
-            case 9:
+            case 4:
                 maxHealth += 1f;
                 health += 1f;
                 break;
-            case 10:
+            case 5:
                 damageMulti += 1;
                 hurtMulti += 1;
                 break;
-            case 11:
+            case 6:
                 speed -= 0.5f;
                 hurtMulti *= 0.5f;
                 damageMulti *= 0.5f;
                 break;
-            case 12:
+            case 7:
                 speed += 3f;
                 hurtMulti *= 2;
                 break;
