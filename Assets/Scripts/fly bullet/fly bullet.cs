@@ -6,7 +6,7 @@ using UnityEngine;
 public class flybullet : MonoBehaviour
 {
     public float Speed = 10;
-    public float time1 = 3f;
+    public float time1 = 4f;
     public float time2=10f;
     public float time3 = 20f;
 
@@ -15,10 +15,10 @@ public class flybullet : MonoBehaviour
     private int y;
     public GameObject fly;
     public Transform minSpawn, maxSpawn;
-    public int horiz;
-    public int vert;
-    public int horiz_space;
-    public int vert_space;
+    public int horiz=10;
+    public int vert=8;
+    public int horiz_space = 5;
+    public int vert_space = 5;
 
     public float count = 3;
 
@@ -31,7 +31,7 @@ public class flybullet : MonoBehaviour
     private void Update()
     {
         beingtime += Time.deltaTime;
-        if(beingtime > time2&&beingtime<time3&&y<3)
+        if(beingtime > time2&&beingtime<time3&&y<2)
         {
             count += Time.deltaTime;
             if (count > time1)

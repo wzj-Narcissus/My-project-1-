@@ -35,7 +35,7 @@ public class Treasurechests : MonoBehaviour
         public string name;
     }
 
-    public int x;
+    private int x;
     public Button _button;
 
     public List<Buffs> mybuffs = new List<Buffs>();
@@ -50,7 +50,7 @@ public class Treasurechests : MonoBehaviour
 
         getdata();
 
-        x = Random.Range(0, 18);
+        x = Random.Range(0, 17);
 
         Buffs temp;
 
