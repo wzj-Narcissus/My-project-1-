@@ -247,6 +247,12 @@ MonoBehaviour:
   shield: 0
   damageMulti: 1
   hurtMulti: 1
+  getMoneyRate: 0
+  intShield: 0
+  inthurt: 0
+  monsterHealth: 0
+  monsterMissRate: 0
+  intMonsterShield: 0
   nextname: buff choose
   x: 0
   _button: {fileID: 1381940348}
