@@ -33,7 +33,12 @@ public class PlayerManager : MonoBehaviour
     public float shield;//护盾
     public float damageMulti;//伤害倍率
     public float hurtMulti;//受伤倍率
-    public float getMoneyRate;
+    //下面是新加属性
+    public float getMoneyRate;//金币掉落率
+    public float intShield;//离散型玩家减伤
+    public float inthurt;//离散型怪物伤害加成
+    public float monsterHealth;//怪物血量加成
+    public float monsterMissRate;//怪物闪避率
 
 
     //public float hurtnum ;//
