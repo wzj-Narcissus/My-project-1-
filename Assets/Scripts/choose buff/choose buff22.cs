@@ -44,15 +44,15 @@ public class choosebuff22 : MonoBehaviour
         if (buttons[0] != null && buttons[1] != null && buttons[2] != null)
         {
 
-            x = Random.Range(0, 7);
-            y = Random.Range(0, 7);
-            z = Random.Range(0, 7);
+            x = Random.Range(0, 6);
+            y = Random.Range(0, 6);
+            z = Random.Range(0, 6);
 
             while (x == y || y == z || z == x)
             {
-                x = Random.Range(0, 7);
-                y = Random.Range(0, 7);
-                z = Random.Range(0, 7);
+                x = Random.Range(0, 6);
+                y = Random.Range(0, 6);
+                z = Random.Range(0, 6);
             }
 
             Buffs temp;
@@ -87,10 +87,6 @@ public class choosebuff22 : MonoBehaviour
             temp.name = "角色造成的所有伤害变为原来的2倍，同时受到的伤害变为原来的2倍";
             mybuffs.Add(temp);
 
-            temp = new Buffs();
-            temp.sometext = "风险";
-            temp.name = "收到的伤害减少0.5点，同时造成的碰撞伤害减少0.5点、速度减少0.5点";
-            mybuffs.Add(temp);
 
             temp = new Buffs();
             temp.sometext = "风险";
@@ -149,11 +145,6 @@ public class choosebuff22 : MonoBehaviour
                 hurtMulti += 1;
                 break;
             case 5:
-                speed -= 0.5f;
-                hurtMulti *= 0.5f;
-                damageMulti *= 0.5f;
-                break;
-            case 6:
                 speed += 3f;
                 hurtMulti *= 2;
                 break;
@@ -187,7 +178,6 @@ public class choosebuff22 : MonoBehaviour
         PlayerPrefs.SetFloat("6", missRate);
         PlayerPrefs.SetFloat("7", shield);
 
-        PlayerPrefs.SetInt("buff1", x);
 
     }
 

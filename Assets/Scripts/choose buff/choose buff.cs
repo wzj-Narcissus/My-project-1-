@@ -198,7 +198,6 @@ public class ChooseBuff : MonoBehaviour
         PlayerPrefs.SetFloat("6", missRate);
         PlayerPrefs.SetFloat("7", shield);
 
-        PlayerPrefs.SetInt("buff1", x);
 
     }
 
