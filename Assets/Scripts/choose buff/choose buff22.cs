@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class ChooseBuff : MonoBehaviour
+public class choosebuff22 : MonoBehaviour
 {
 
     public float speed;//初始速度
@@ -44,15 +44,15 @@ public class ChooseBuff : MonoBehaviour
         if (buttons[0] != null && buttons[1] != null && buttons[2] != null)
         {
 
-            x = Random.Range(0, 8);
-            y = Random.Range(0, 8);
-            z = Random.Range(0, 8);
+            x = Random.Range(0, 6);
+            y = Random.Range(0, 6);
+            z = Random.Range(0, 6);
 
             while (x == y || y == z || z == x)
             {
-                x = Random.Range(0, 8);
-                y = Random.Range(0, 8);
-                z = Random.Range(0, 8);
+                x = Random.Range(0, 6);
+                y = Random.Range(0, 6);
+                z = Random.Range(0, 6);
             }
 
             Buffs temp;
@@ -82,22 +82,11 @@ public class ChooseBuff : MonoBehaviour
             mybuffs.Add(temp);
 
 
-
-            temp = new Buffs();
-            temp.sometext = "生命上限";
-            temp.name = "生命上限提升1点";
-            mybuffs.Add(temp);
-
-
             temp = new Buffs();
             temp.sometext = "风险";
             temp.name = "角色造成的所有伤害变为原来的2倍，同时受到的伤害变为原来的2倍";
             mybuffs.Add(temp);
 
-            temp = new Buffs();
-            temp.sometext = "风险";
-            temp.name = "收到的伤害减少0.5点，同时造成的碰撞伤害减少0.5点、速度减少0.5点";
-            mybuffs.Add(temp);
 
             temp = new Buffs();
             temp.sometext = "风险";
@@ -152,19 +141,10 @@ public class ChooseBuff : MonoBehaviour
                 speed += 0.5f;
                 break;
             case 4:
-                maxHealth += 1f;
-                health += 1f;
-                break;
-            case 5:
                 damageMulti += 1;
                 hurtMulti += 1;
                 break;
-            case 6:
-                speed -= 0.5f;
-                hurtMulti *= 0.5f;
-                damageMulti *= 0.5f;
-                break;
-            case 7:
+            case 5:
                 speed += 3f;
                 hurtMulti *= 2;
                 break;
