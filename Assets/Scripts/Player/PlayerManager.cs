@@ -31,8 +31,11 @@ public class PlayerManager : MonoBehaviour
     public float criticalStrikeRate;//初始暴击率
     public float missRate;//初始闪避率
     public int shield;//护盾
-    public float damageMulti=1;//伤害倍率
-    public float hurtMulti=1;//受伤倍率
+    public float damageMulti;//伤害倍率
+    public float hurtMulti;//受伤倍率
+    public float getMoneyRate;
+
+
     //public float hurtnum ;//
 
     //下面是buff后的真实参数

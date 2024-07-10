@@ -9,6 +9,7 @@ TagManager:
   - monster
   - enemy1
   - enemy2
+  - enemy3
   layers:
   - Default
   - TransparentFX

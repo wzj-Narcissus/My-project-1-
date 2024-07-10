@@ -11,6 +11,9 @@ public class DogAttack : MonoBehaviour
 
     PlayerManager playerManager;
 
+
+    public float healthTime;
+
     public bool flag;
     public float hasGetDamageTime;
     public Vector2 direction;
@@ -46,6 +49,7 @@ public class DogAttack : MonoBehaviour
     }
     private void Update()
     {
+        if(healthTime > 0)healthTime-=Time.deltaTime;
         if(Hp<=0)Destroy(gameObject);
         if (playerManager.hasAttackTime <= 0&&hasRushTime<=0)
         {
@@ -98,7 +102,15 @@ public class DogAttack : MonoBehaviour
     {
         if (collision.gameObject.tag == "player" && hasRushTime > 0)
         {
-            playerManager.GetDamaged(1);
+            if (healthTime > 0)
+            {
+
+            }
+            else 
+            { 
+                playerManager.GetDamaged(1);
+                healthTime = 0.5f;
+            }
             //Debug.Log("11");
         }
         else if(collision.gameObject.tag == "player" && hasRushTime <= 0)
@@ -118,6 +130,10 @@ public class DogAttack : MonoBehaviour
         }
         else {
             Hp -= playerManager.damage * playerManager.damageMulti*2;
+        }
+        if(Random.Range(0,100)>playerManager.getMoneyRate)
+        {
+            playerManager.money++;
         }
 
 
