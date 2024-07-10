@@ -16,8 +16,15 @@ public class Treasurechests : MonoBehaviour
     public float criticalStrikeRate;//初始暴击率
     public float missRate;//初始闪避率
     public float shield;//护盾
-    public float damageMulti = 1;//伤害倍率
-    public float hurtMulti = 1;//受伤倍率
+    public float damageMulti;//伤害倍率
+    public float hurtMulti;//受伤倍率
+    //下面是新加属性
+    public float getMoneyRate;//金币掉落率
+    public float intShield;//离散型玩家减伤
+    public float inthurt;//离散型怪物伤害加成
+    public float monsterHealth;//怪物血量加成
+    public float monsterMissRate;//怪物闪避率
+    public float intMonsterShield;//离散型怪物减伤
 
 
     public string nextname;
@@ -41,8 +48,9 @@ public class Treasurechests : MonoBehaviour
     {
         _button =GameObject.Find("Button").GetComponent<Button>();
 
+        getdata();
 
-        x = Random.Range(0, 13);
+        x = Random.Range(0, 18);
 
         Buffs temp;
 
@@ -114,6 +122,27 @@ public class Treasurechests : MonoBehaviour
         temp.name = "移动速度提高3点，同时收到的伤害变为原来的2倍";
         mybuffs.Add(temp);
 
+        temp = new Buffs();
+        temp.sometext = "怪物暴动";
+        temp.name = "怪物伤害提高0.5点";
+        mybuffs.Add(temp);
+
+        temp = new Buffs();
+        temp.sometext = "怪物暴动";
+        temp.name = "怪物血量提高50%";
+        mybuffs.Add(temp);
+
+        temp = new Buffs();
+        temp.sometext = "怪物暴动";
+        temp.name = "怪物闪避率提升20%";
+        mybuffs.Add(temp);
+
+
+        temp = new Buffs();
+        temp.sometext = "金融危机";
+        temp.name = "金币掉落率降低20%";
+        mybuffs.Add(temp);
+
 
     }
 
@@ -133,6 +162,8 @@ public class Treasurechests : MonoBehaviour
         }
         if(counttime >4f)
         {
+            change(x);
+            loaddate();
             SceneManager.LoadScene(nextname);
         }
         
@@ -190,6 +221,18 @@ public class Treasurechests : MonoBehaviour
                 speed += 3f;
                 hurtMulti *= 2;
                 break;
+            case 13:
+                inthurt += 0.5f;
+                break;
+            case 14:
+                monsterMissRate += 0.5f;
+                break;
+            case 15:
+                monsterMissRate += 0.2f;
+                break;
+            case 16:
+                getMoneyRate -= 20f;
+                break;
 
 
             default:
@@ -207,10 +250,17 @@ public class Treasurechests : MonoBehaviour
         criticalStrikeRate = PlayerPrefs.GetFloat("5", 0f);
         missRate = PlayerPrefs.GetFloat("6", 0f);
         shield = PlayerPrefs.GetFloat("7", 0f);
+        //增加属性
+        getMoneyRate = PlayerPrefs.GetFloat("8", 0f);
+        intShield = PlayerPrefs.GetFloat("9", 0f);
+        inthurt = PlayerPrefs.GetFloat("10", 0f);
+        monsterHealth = PlayerPrefs.GetFloat("11", 0f);
+        monsterMissRate = PlayerPrefs.GetFloat("12", 0f);
+        intMonsterShield = PlayerPrefs.GetFloat("13", 0f);
     }
 
 
-    public void loaddate(int x)
+    public void loaddate()
     {
         PlayerPrefs.SetFloat("1", speed);
         PlayerPrefs.SetFloat("2", damage);
@@ -219,6 +269,13 @@ public class Treasurechests : MonoBehaviour
         PlayerPrefs.SetFloat("5", criticalStrikeRate);
         PlayerPrefs.SetFloat("6", missRate);
         PlayerPrefs.SetFloat("7", shield);
+        //增加属性
+        PlayerPrefs.SetFloat("8", getMoneyRate);
+        PlayerPrefs.SetFloat("9", intShield);
+        PlayerPrefs.SetFloat("10", inthurt);
+        PlayerPrefs.SetFloat("11", monsterHealth);
+        PlayerPrefs.SetFloat("12", monsterMissRate);
+        PlayerPrefs.SetFloat("13", intMonsterShield);
 
     }
 
