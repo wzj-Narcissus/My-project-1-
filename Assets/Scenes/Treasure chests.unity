@@ -247,7 +247,7 @@ MonoBehaviour:
   shield: 0
   damageMulti: 1
   hurtMulti: 1
-  nextname: 
+  nextname: buff choose
   x: 0
   _button: {fileID: 1381940348}
 --- !u!1 &1195296427

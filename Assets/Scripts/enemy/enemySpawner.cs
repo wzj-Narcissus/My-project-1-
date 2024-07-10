@@ -55,6 +55,7 @@ public class enemySpawner : MonoBehaviour
             {
 
                 counttime1 += Time.deltaTime;
+                
                 if (counttime1 < 2)
                 {
                     spawnCounter -= Time.deltaTime;

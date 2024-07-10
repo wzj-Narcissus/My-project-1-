@@ -596,20 +596,6 @@ MonoBehaviour:
   Prefab3: {fileID: 396115257}
   Prefab4: {fileID: 1313453420}
   Prefab5: {fileID: 385343162}
---- !u!114 &445513343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445513325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fa110b6cfb7160408d302ebd347d233, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextScene: buff choose
-  prefab: {fileID: 5782087066630147240, guid: 7341c7a62ba0aba478047d0b1a74f3d6, type: 3}
 --- !u!114 &445513351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -640,12 +626,28 @@ MonoBehaviour:
   getMoneyRate: 60
   intShield: 0
   inthurt: 0
-  monsterHealth: 0
+  monsterHealth: 1
   monsterMissRate: 0
+  intMonsterShield: 0
   experience: 0
   money: 0
   deathPrefab: {fileID: 1966207867}
   isRight: 0
+--- !u!114 &445513358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445513325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cbb603f996234847bf9e32e4228d5c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene: Treasure chests
+  flag: 0
+  prefab: {fileID: 5782087066630147240, guid: 7341c7a62ba0aba478047d0b1a74f3d6, type: 3}
 --- !u!1 &520475839 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 423780344667284915, guid: 5a4c22bb03c5d6e4c97d138a3f36f128, type: 3}
@@ -656,6 +658,62 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3903612430174895887, guid: 42bce904007235b4e89a9f9e7d9784b2, type: 3}
   m_PrefabInstance: {fileID: 6921049840109109086}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &605754667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 605754669}
+  - component: {fileID: 605754668}
+  m_Layer: 0
+  m_Name: enemy spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &605754668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605754667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd67a547382341141b288273b46a781a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy1: {fileID: 7680119932164371480, guid: 973672e585e17aa49b1ca48bf878e875, type: 3}
+  enemy2: {fileID: 7680119932164371480, guid: 973672e585e17aa49b1ca48bf878e875, type: 3}
+  enemy3: {fileID: 7680119932164371480, guid: 973672e585e17aa49b1ca48bf878e875, type: 3}
+  testenemy: {fileID: 0}
+  timetospawn: 3
+  minSpawn: {fileID: 0}
+  maxSpawn: {fileID: 0}
+  sign: 0
+  counttime: 0
+  counttime1: 0
+  counttime2: 0
+  key: 0
+--- !u!4 &605754669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 605754667}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.7, y: 1.5871606, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &751811871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,10 +1694,10 @@ PrefabInstance:
       addedObject: {fileID: 445513334}
     - targetCorrespondingSourceObject: {fileID: 1741170898550041895, guid: 837ac3e60c7b93349952160bda27d1b6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 445513343}
+      addedObject: {fileID: 445513351}
     - targetCorrespondingSourceObject: {fileID: 1741170898550041895, guid: 837ac3e60c7b93349952160bda27d1b6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 445513351}
+      addedObject: {fileID: 445513358}
   m_SourcePrefab: {fileID: 100100000, guid: 837ac3e60c7b93349952160bda27d1b6, type: 3}
 --- !u!1001 &2849984493729954817
 PrefabInstance:
@@ -1649,6 +1707,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 152120375387882284, guid: 7341c7a62ba0aba478047d0b1a74f3d6, type: 3}
+      propertyPath: nextScene
+      value: Treasure chests
+      objectReference: {fileID: 0}
     - target: {fileID: 3239053995348298457, guid: 7341c7a62ba0aba478047d0b1a74f3d6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.11
@@ -2449,3 +2511,4 @@ SceneRoots:
   - {fileID: 232170884}
   - {fileID: 1557164727}
   - {fileID: 2849984493729954817}
+  - {fileID: 605754669}
