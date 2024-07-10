@@ -4,6 +4,21 @@ using UnityEngine;
 
 public class squirrelAttack : MonoBehaviour
 {
+
+    Collider2D playerCol;
+    Collider2D squirrelCol;
+    Collider2D edge;
+    PlayerManager playerManager;
+
+
+
+
+
+    public float Hp;
+
+
+
+
     public GameObject BulletPrefab;
     private bool isRight = true;
     private bool isUp = false;
@@ -13,14 +28,47 @@ public class squirrelAttack : MonoBehaviour
     public float interval = 4f; // 攻击间隔
     public float Attime;//攻击时间
 
+    public Vector2 direction;
+
+
     private void Awake()
     {
+
+
+        playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
+        squirrelCol = GetComponent<Collider2D>();//怪物碰撞体
+        playerCol = GameObject.Find("Player").GetComponent<Collider2D>();
+        edge = GameObject.Find("Edge").GetComponent<Collider2D>();
+        Physics2D.IgnoreCollision(squirrelCol, playerCol, true);
+        Physics2D.IgnoreCollision(squirrelCol, edge, true);
+
+
+
+
+
+
         target = GameObject.Find("Player").transform; //获取玩家位置，注意大小写
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (playerManager.hasAttackTime <= 0 )
+        {
+            Physics2D.IgnoreCollision(squirrelCol, playerCol, true);
+            //Physics2D.IgnoreCollision(dogColClone, playerCol, true);
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            Physics2D.IgnoreCollision(squirrelCol, playerCol, false);
+        }
+
+
+
+
+        if(Hp<=0)Destroy(gameObject);
+
+
         //执行发射
         Shoot();
     }
@@ -35,34 +83,70 @@ public class squirrelAttack : MonoBehaviour
             Attime = Time.time;
             //设置子弹方向，获取玩家方位
             Bullet bullet = bulletObj.GetComponent<Bullet>();
-            CheckRelativePosition();
-            if (horizontalDifference* horizontalDifference < verticalDifference* verticalDifference)
-            {
-                if (isUp)
-                    bullet.SetDirection(Vector2.down);
-                else bullet.SetDirection(Vector2.up);
-            }
-            else
-            {
-                if (isRight)
-                    bullet.SetDirection(Vector2.left);
-                else bullet.SetDirection(Vector2.right);
-            }
+            //CheckRelativePosition();
+            //if (horizontalDifference* horizontalDifference < verticalDifference* verticalDifference)
+            //{
+            //    if (isUp)
+            //        bullet.SetDirection(Vector2.down);
+            //    else bullet.SetDirection(Vector2.up);
+            //}
+            //else
+            //{
+            //    if (isRight)
+            //        bullet.SetDirection(Vector2.left);
+            //    else bullet.SetDirection(Vector2.right);
+            //}
+            direction=target.position-gameObject.transform.position;
+            bullet.SetDirection(direction);
+
 
         }
     }
-    void CheckRelativePosition()
+
+
+
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        // 获取两个物体的世界位置
-        Vector3 thisPosition = transform.position;
-        Vector3 targetPosition = target.position;
-
-        // 计算两个物体之间的相对位置
-        horizontalDifference = thisPosition.x - targetPosition.x;
-        verticalDifference = thisPosition.y - targetPosition.y;
-
-        // 根据相对位置更新isRight和isUp的值
-        isRight = horizontalDifference > 0;
-        isUp = verticalDifference > 0;
+        if(collision.gameObject.tag=="player") 
+        {
+            GetDamaged();
+        }
     }
+    private void GetDamaged()
+    {
+        if (Random.Range(0, 100) > playerManager.criticalStrikeRate)
+        {
+            Hp -= playerManager.damage * playerManager.damageMulti;
+        }
+        else
+        {
+            Hp -= playerManager.damage * playerManager.damageMulti * 2;
+        }
+        if (Random.Range(0, 100)>playerManager.getMoneyRate)
+        {
+            playerManager.money++;
+        }
+
+
+    }
+
+
+
+
+    //void CheckRelativePosition()
+    //{
+    //    // 获取两个物体的世界位置
+    //    Vector3 thisPosition = transform.position;
+    //    Vector3 targetPosition = target.position;
+
+    //    // 计算两个物体之间的相对位置
+    //    horizontalDifference = thisPosition.x - targetPosition.x;
+    //    verticalDifference = thisPosition.y - targetPosition.y;
+
+    //    // 根据相对位置更新isRight和isUp的值
+    //    isRight = horizontalDifference > 0;
+    //    isUp = verticalDifference > 0;
+    //}
 }

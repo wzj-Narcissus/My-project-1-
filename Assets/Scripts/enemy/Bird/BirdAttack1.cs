@@ -163,6 +163,9 @@ public class BirdAttack1 : MonoBehaviour
             Hp -= playerManager.damage * playerManager.damageMulti * 2;
         }
 
-
+        if (Random.Range(0, 100) > playerManager.getMoneyRate)
+        {
+            playerManager.money++;
+        }
     }
 }
