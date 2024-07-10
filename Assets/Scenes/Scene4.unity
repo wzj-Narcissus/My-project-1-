@@ -850,7 +850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy1: {fileID: 213955407940143, guid: 95a7750de4e6d5c41abf06e4f0bcf870, type: 3}
-  enemy2: {fileID: 5256706125856058596, guid: 738df67def081054c8724c1041f89cc9, type: 3}
+  enemy2: {fileID: 4433140868370882081, guid: e5d9c635b74fb8b49b063f496fd09488, type: 3}
   enemy3: {fileID: 2454754100670577600, guid: ea6f60426cc873a498c825b0ebb43275, type: 3}
   testenemy: {fileID: 0}
   timetospawn: 0.5
