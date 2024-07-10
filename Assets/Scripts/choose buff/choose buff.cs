@@ -19,7 +19,7 @@ public class ChooseBuff : MonoBehaviour
     public float hurtMulti = 1;// ‹…À±∂¬ 
 
 
-
+    public string nextname;
 
     public struct Buffs
     {
@@ -32,7 +32,6 @@ public class ChooseBuff : MonoBehaviour
     private int z;
     public Button[] buttons;
     public List<Buffs> mybuffs = new List<Buffs>();
-    string nextname;
 
     void Start()
     {
