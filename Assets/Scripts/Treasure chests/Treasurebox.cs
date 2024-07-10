@@ -31,6 +31,13 @@ public class Treasurebox : MonoBehaviour
             PlayerPrefs.SetFloat("7", playerManager.shield);
             PlayerPrefs.SetFloat("8", playerManager.damageMulti);
             PlayerPrefs.SetFloat("9", playerManager.hurtMulti);
+            //‘ˆº” Ù–‘
+            PlayerPrefs.SetFloat("10", playerManager.getMoneyRate);
+            PlayerPrefs.SetFloat("11", playerManager.intShield);
+            PlayerPrefs.SetFloat("12", playerManager.inthurt);
+            PlayerPrefs.SetFloat("13", playerManager.monsterHealth);
+            PlayerPrefs.SetFloat("14", playerManager.monsterMissRate);
+            PlayerPrefs.SetFloat("15", playerManager.intMonsterShield);
             SceneManager.LoadScene(nextScene);
             Destroy(gameObject);
         }

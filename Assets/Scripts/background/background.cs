@@ -1,15 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class SquirrelAttack : MonoBehaviour
+public class background : MonoBehaviour
 {
-    Collider2D playerCol;
-    Collider2D dogCol;
-    Collider2D edge;
-
-
-
+    public string nextname;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,5 +17,11 @@ public class SquirrelAttack : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void whenbutton()
+    {
+        SceneManager.LoadScene(nextname);
+
     }
 }

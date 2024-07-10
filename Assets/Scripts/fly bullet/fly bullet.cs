@@ -7,6 +7,8 @@ public class flybullet : MonoBehaviour
 {
     public float Speed = 10;
     public float time1 = 3f;
+    public float time2=10f;
+    public float time3 = 20f;
 
     private float beingtime = 0;
     private int x;
@@ -17,25 +19,41 @@ public class flybullet : MonoBehaviour
     public int vert;
     public int horiz_space;
     public int vert_space;
+
+    public float count = 3;
+
     private void Start()
     {
         x = Random.Range(0, 4);
         y = 0;
-        horiz = 8;
-        vert = 5;
-        horiz_space = 3;
-        vert_space = 3;
     }
 
     private void Update()
     {
         beingtime += Time.deltaTime;
-        if(beingtime > time1&&y==0)
-
+        if(beingtime > time2&&beingtime<time3&&y<3)
         {
-            four(x);
-            beingtime = 0;
-            x = Random.Range(0, 4);
+            count += Time.deltaTime;
+            if (count > time1)
+
+            {
+                four(x);
+                count = 0;
+                x = Random.Range(0, 4);
+                y++;
+            }
+        }
+
+        if (beingtime > time3 ) 
+        {
+            count += Time.deltaTime;
+            if (count > time1)
+
+            {
+                four(x);
+                count = 0;
+                x = Random.Range(0, 4);
+            }
         }
 
         

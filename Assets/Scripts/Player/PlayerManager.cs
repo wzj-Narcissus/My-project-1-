@@ -215,6 +215,13 @@ public class PlayerManager : MonoBehaviour
         shield = PlayerPrefs.GetFloat("7", 0f);
         damageMulti = PlayerPrefs.GetFloat("8", 1f);
         hurtMulti = PlayerPrefs.GetFloat("9", 1f);
+        //‘ˆº” Ù–‘
+        getMoneyRate = PlayerPrefs.GetFloat("10", 60f);
+        intShield = PlayerPrefs.GetFloat("11", 0f);
+        inthurt = PlayerPrefs.GetFloat("12", 0f);
+        monsterHealth = PlayerPrefs.GetFloat("13", 1f);
+        monsterMissRate = PlayerPrefs.GetFloat("14", 0f);
+        intMonsterShield = PlayerPrefs.GetFloat("15", 0f);
     }
 
 
