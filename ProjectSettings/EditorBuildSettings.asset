@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/PlayScene.unity
     guid: c5682d40338f8ac47afd052158946ae5
   - enabled: 1
-    path: Assets/Scenes/Treasure chests.unity
+    path: Assets/Scenes/Treasure/Treasure chests.unity
     guid: 4f3cd492db8569a4381be4cf396282c1
   m_configObjects: {}

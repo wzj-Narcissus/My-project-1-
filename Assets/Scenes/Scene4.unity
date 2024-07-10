@@ -826,20 +826,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1100043981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bf7cb1f830030e49a49e294301cd618, type: 3}
+  m_Script: {fileID: 11500000, guid: 37d2a1303b17742439557b05bb31a608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 10
-  time1: 4
+  time1: 1
   time2: 10
-  time3: 30
+  time3: 40
+  time1_1: 2
   fly: {fileID: 6945303541506861247, guid: e968b535fecf3764f827c85204b98f15, type: 3}
   minSpawn: {fileID: 789046689}
   maxSpawn: {fileID: 1021726947}
-  horiz: 10
-  vert: 8
-  horiz_space: 5
-  vert_space: 5
   count: 3
 --- !u!1 &1171620549
 GameObject:

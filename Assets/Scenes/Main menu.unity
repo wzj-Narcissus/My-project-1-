@@ -666,7 +666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b52bf0b8980753439acb78d6c19bc9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startname: Scene1
+  startname: background
 --- !u!114 &1515464366
 MonoBehaviour:
   m_ObjectHideFlags: 0
