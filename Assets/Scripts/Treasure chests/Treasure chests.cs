@@ -22,13 +22,14 @@ public class Treasurechests : MonoBehaviour
     public string nextname;
 
     public Button buttons;
-    public List<Buffs> _buffs = new List<Buffs>();
+
 
     private struct Buffs
     {
         public string sometext;
         public string name;
     }
+
     // Start is called before the first frame update
     void Start()
     {
