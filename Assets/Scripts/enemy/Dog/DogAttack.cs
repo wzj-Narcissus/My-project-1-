@@ -46,6 +46,7 @@ public class DogAttack : MonoBehaviour
         Physics2D.IgnoreCollision(dogCol, playerCol, true);
         theRB= GetComponent<Rigidbody2D>();
         Physics2D.IgnoreCollision(dogCol, edge,true);
+        Hp *= playerManager.monsterHealth;
     }
     private void Update()
     {
@@ -108,7 +109,7 @@ public class DogAttack : MonoBehaviour
             }
             else 
             { 
-                playerManager.GetDamaged(1);
+                playerManager.GetDamaged(1+playerManager.inthurt);
                 healthTime = 0.5f;
             }
             //Debug.Log("11");
@@ -124,16 +125,22 @@ public class DogAttack : MonoBehaviour
 
     private void GetDamaged()
     {
-        if (Random.Range(0, 100) > playerManager.criticalStrikeRate)
+        if (Random.Range(0, 100) > playerManager.monsterMissRate)
         {
-            Hp -= playerManager.damage * playerManager.damageMulti;
-        }
-        else {
-            Hp -= playerManager.damage * playerManager.damageMulti*2;
-        }
-        if(Random.Range(0,100)>playerManager.getMoneyRate)
-        {
-            playerManager.money++;
+            if (Random.Range(0, 100) > playerManager.criticalStrikeRate)
+            {
+                if (playerManager.intMonsterShield < playerManager.damage * playerManager.damageMulti)
+                    Hp = Hp + playerManager.intMonsterShield - playerManager.damage * playerManager.damageMulti;
+            }
+            else
+            {
+                if (playerManager.intMonsterShield < playerManager.damage * playerManager.damageMulti * 2)
+                    Hp = Hp + playerManager.intMonsterShield - playerManager.damage * playerManager.damageMulti * 2;
+            }
+            if (Random.Range(0, 100) < playerManager.getMoneyRate)
+            {
+                playerManager.money++;
+            }
         }
 
 

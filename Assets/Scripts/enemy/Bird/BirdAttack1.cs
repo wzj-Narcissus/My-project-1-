@@ -49,6 +49,7 @@ public class BirdAttack1 : MonoBehaviour
         Physics2D.IgnoreCollision(birdCol, playerCol, true);
         theRB = GetComponent<Rigidbody2D>();
         Physics2D.IgnoreCollision(birdCol, edge, true);
+        Hp *= playerManager.monsterHealth;
     }
     private void Update()
     {
@@ -131,14 +132,13 @@ public class BirdAttack1 : MonoBehaviour
             }
             else
             {
-                playerManager.GetDamaged(1);
+                playerManager.GetDamaged(1+ playerManager.inthurt);
                 healthTime = 0.5f;
                 //Debug.Log("11");
             }
         }
         else if (collision.gameObject.tag == "player" && hasRushTime <= 0 && hasGetDamageTime <= 0)
         {
-            Debug.Log("1");
             GetDamaged();
             //flag = true;
             //hasGetDamageTime = 0.5f;
@@ -153,19 +153,24 @@ public class BirdAttack1 : MonoBehaviour
 
     private void GetDamaged()
     {
-        Debug.Log("GETDAMAGED");
-        if (Random.Range(0, 100) > playerManager.criticalStrikeRate)
+        if (Random.Range(0, 100) > playerManager.monsterMissRate)
         {
-            Hp -= playerManager.damage * playerManager.damageMulti;
-        }
-        else
-        {
-            Hp -= playerManager.damage * playerManager.damageMulti * 2;
+            if (Random.Range(0, 100) > playerManager.criticalStrikeRate)
+            {
+                if (playerManager.intMonsterShield < playerManager.damage * playerManager.damageMulti)
+                    Hp = Hp + playerManager.intMonsterShield - playerManager.damage * playerManager.damageMulti;
+            }
+            else
+            {
+                if (playerManager.intMonsterShield < playerManager.damage * playerManager.damageMulti * 2)
+                    Hp = Hp + playerManager.intMonsterShield - playerManager.damage * playerManager.damageMulti * 2;
+            }
+            if (Random.Range(0, 100) < playerManager.getMoneyRate)
+            {
+                playerManager.money++;
+            }
         }
 
-        if (Random.Range(0, 100) > playerManager.getMoneyRate)
-        {
-            playerManager.money++;
-        }
+
     }
 }
