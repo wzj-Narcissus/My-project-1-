@@ -21,7 +21,7 @@ public class enemySpawner : MonoBehaviour
     void Start()
     {
         sign = 1;
-        key = 1;
+        key = 0;
         spawnCounter = timetospawn;
         counttime = 13;
         counttime1 = 0;
@@ -34,7 +34,7 @@ public class enemySpawner : MonoBehaviour
         if (sign <= 3)
         {
 
-            if (GameObject.FindWithTag("enemy1") == null && sign == 1&&key!=1)
+            if (GameObject.FindWithTag("enemy1") == null && sign == 1&&key==1)
             {
                 counttime = 14.8f;
                 counttime1 = 0;
@@ -42,7 +42,7 @@ public class enemySpawner : MonoBehaviour
                 sign += 1;
             }
 
-            if (GameObject.FindWithTag("enemy2") == null && sign == 2)
+            if (GameObject.FindWithTag("enemy2") == null && sign == 2&&key==2)
             {
                 counttime = 14.8f;
                 counttime1 = 0;
@@ -76,7 +76,7 @@ public class enemySpawner : MonoBehaviour
                                 break;
                         }
                         spawnCounter = timetospawn;
-                        key = 0;
+                        key++;
                     }
 
                 }
