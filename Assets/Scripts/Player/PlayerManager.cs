@@ -39,17 +39,9 @@ public class PlayerManager : MonoBehaviour
     public float inthurt;//离散型怪物伤害加成
     public float monsterHealth;//怪物血量加成
     public float monsterMissRate;//怪物闪避率
+    public float intMonsterShield;//离散型怪物减伤
 
-
-    //public float hurtnum ;//
-
-    //下面是buff后的真实参数
-    //public float realSpeed;//速度
-    //public float realDamage;//野猪初始攻击力
-    //public float realHealth;//生命
-    //public float realCriticalStrikeRate;//初始暴击率
-    //public float realMissRate;//初始闪避率
-    //public float realShield;//护盾
+   
 
     public float experience;//经验
     public int money;
@@ -183,7 +175,11 @@ public class PlayerManager : MonoBehaviour
             }
             else
             {
-                health -= damage * hurtMulti;
+                if (intShield > damage * hurtMulti) { }
+                else
+                {
+                    health = health + intShield - damage * hurtMulti;
+                }
                 //Debug.Log("h");
             }
         }

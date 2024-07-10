@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("player"))
         {
-            playerManager.GetDamaged(1.5f);
+            playerManager.GetDamaged(1.5f+playerManager.inthurt);
             Destroy(gameObject);
         }
         //if (other.gameObject.CompareTag("Env"))

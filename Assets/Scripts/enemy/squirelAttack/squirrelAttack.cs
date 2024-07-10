@@ -34,7 +34,7 @@ public class squirrelAttack : MonoBehaviour
     private void Awake()
     {
 
-
+        
         playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
         squirrelCol = GetComponent<Collider2D>();//怪物碰撞体
         playerCol = GameObject.Find("Player").GetComponent<Collider2D>();
@@ -44,7 +44,7 @@ public class squirrelAttack : MonoBehaviour
 
 
 
-
+        Hp = Hp *playerManager.monsterHealth;
 
 
         target = GameObject.Find("Player").transform; //获取玩家位置，注意大小写
@@ -116,17 +116,22 @@ public class squirrelAttack : MonoBehaviour
     }
     private void GetDamaged()
     {
-        if (Random.Range(0, 100) > playerManager.criticalStrikeRate)
+        if (Random.Range(0, 100) > playerManager.monsterMissRate)
         {
-            Hp -= playerManager.damage * playerManager.damageMulti;
-        }
-        else
-        {
-            Hp -= playerManager.damage * playerManager.damageMulti * 2;
-        }
-        if (Random.Range(0, 100)>playerManager.getMoneyRate)
-        {
-            playerManager.money++;
+            if (Random.Range(0, 100) > playerManager.criticalStrikeRate)
+            {
+                if(playerManager.intMonsterShield< playerManager.damage * playerManager.damageMulti)
+                Hp = Hp+ playerManager.intMonsterShield - playerManager.damage * playerManager.damageMulti;
+            }
+            else
+            {
+                if (playerManager.intMonsterShield < playerManager.damage * playerManager.damageMulti*2)
+                    Hp = Hp + playerManager.intMonsterShield - playerManager.damage * playerManager.damageMulti*2;
+            }
+            if (Random.Range(0, 100) < playerManager.getMoneyRate)
+            {
+                playerManager.money++;
+            }
         }
 
 
