@@ -150,10 +150,10 @@ public class ChooseBuff : MonoBehaviour
                 damage = (float)(damage + 0.5);
                 break;
             case 1:
-                criticalStrikeRate += 0.2f;
+                criticalStrikeRate += 2f;
                 break;
             case 2:
-                missRate += 0.15f;
+                missRate += 1.5f;
                 break;
             case 3:
                 speed += 0.5f;
@@ -185,20 +185,22 @@ public class ChooseBuff : MonoBehaviour
 
     void getdata()
     {
-        speed = PlayerPrefs.GetFloat("1", 0f);
-        damage = PlayerPrefs.GetFloat("2", 0f);
-        health = PlayerPrefs.GetFloat("3", 0f);
-        maxHealth = PlayerPrefs.GetFloat("4", 0f);
-        criticalStrikeRate = PlayerPrefs.GetFloat("5", 0f);
-        missRate = PlayerPrefs.GetFloat("6", 0f);
+        speed = PlayerPrefs.GetFloat("1",2f );
+        damage = PlayerPrefs.GetFloat("2", 1f);
+        health = PlayerPrefs.GetFloat("3", 3f);
+        maxHealth = PlayerPrefs.GetFloat("4", 5f);
+        criticalStrikeRate = PlayerPrefs.GetFloat("5", 5f);
+        missRate = PlayerPrefs.GetFloat("6", 5f);
         shield = PlayerPrefs.GetFloat("7", 0f);
+        damageMulti = PlayerPrefs.GetFloat("8", 1f);
+        hurtMulti =PlayerPrefs.GetFloat("9", 1f);
         //增加属性
-        getMoneyRate=PlayerPrefs.GetFloat("8", 0f);
-        intShield = PlayerPrefs.GetFloat("9", 0f);
-        inthurt= PlayerPrefs.GetFloat("10", 0f);
-        monsterHealth= PlayerPrefs.GetFloat("11", 0f);
-        monsterMissRate = PlayerPrefs.GetFloat("12", 0f);
-        intMonsterShield = PlayerPrefs.GetFloat("13", 0f);
+        getMoneyRate=PlayerPrefs.GetFloat("10", 60f);
+        intShield = PlayerPrefs.GetFloat("11", 0f);
+        inthurt= PlayerPrefs.GetFloat("12", 0f);
+        monsterHealth= PlayerPrefs.GetFloat("13", 1f);
+        monsterMissRate = PlayerPrefs.GetFloat("14", 0f);
+        intMonsterShield = PlayerPrefs.GetFloat("15", 0f);
 
     }
 
@@ -212,13 +214,15 @@ public class ChooseBuff : MonoBehaviour
         PlayerPrefs.SetFloat("5", criticalStrikeRate);
         PlayerPrefs.SetFloat("6", missRate);
         PlayerPrefs.SetFloat("7", shield);
+        PlayerPrefs.SetFloat("8",damageMulti);
+        PlayerPrefs.SetFloat("9", hurtMulti);
         //增加属性
-        PlayerPrefs.SetFloat("8",getMoneyRate);
-        PlayerPrefs.SetFloat("9",intShield);
-        PlayerPrefs.SetFloat("10",inthurt);
-        PlayerPrefs.SetFloat("11",monsterHealth);
-        PlayerPrefs.SetFloat("12",monsterMissRate);
-        PlayerPrefs.SetFloat("13",intMonsterShield);
+        PlayerPrefs.SetFloat("10",getMoneyRate);
+        PlayerPrefs.SetFloat("11",intShield);
+        PlayerPrefs.SetFloat("12",inthurt);
+        PlayerPrefs.SetFloat("13",monsterHealth);
+        PlayerPrefs.SetFloat("14",monsterMissRate);
+        PlayerPrefs.SetFloat("15",intMonsterShield);
 
 
     }
