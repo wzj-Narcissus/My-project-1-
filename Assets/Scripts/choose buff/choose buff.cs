@@ -187,9 +187,11 @@ public class ChooseBuff : MonoBehaviour
                 break;
             case 8:
                 maxHealth += 0.5f;
+                health += 0.5f;
                 break;
             case 9:
                 maxHealth += 1f;
+                health += 1f;
                 break;
             case 10:
                 damageMulti += 1;
