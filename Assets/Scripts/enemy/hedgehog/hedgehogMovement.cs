@@ -13,7 +13,7 @@ public class hedgehogMovement : MonoBehaviour
     }
     private void Update()
     {
-        if (gameObject.GetComponent<hedgehogAttack>().MoveOrNot)
+        if (!gameObject.GetComponent<hedgehogAttack>().flag)
         {
             if (target != null)
             {
