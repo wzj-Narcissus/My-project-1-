@@ -9,20 +9,32 @@ public class flybullet : MonoBehaviour
     public float time1 = 3f;
 
     private float beingtime = 0;
-
+    private int x;
+    private int y;
     public GameObject fly;
     public Transform minSpawn, maxSpawn;
+    public int horiz;
+    public int vert;
+    public int horiz_space;
+    public int vert_space;
     private void Start()
     {
-        
+        x = Random.Range(0, 4);
+        y = 0;
+        horiz = 6;
+        vert = 4;
+        horiz_space = 2;
+        vert_space = 2;
     }
 
     private void Update()
     {
         beingtime += Time.deltaTime;
-        if(beingtime > time1)
+        if(beingtime > time1&&y==0)
+
         {
-            
+            four(x);
+            y = 1; 
         }
 
         
@@ -57,10 +69,13 @@ public class flybullet : MonoBehaviour
         Vector2 temp =new Vector2();
         temp.x = _pos.position.x;
         temp.y = _pos.position.y;
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < horiz; i++)
         {
-            temp.x += 2;
-            Instantiate(fly, temp, transform.rotation);
+            
+            GameObject bullet = Instantiate(fly, temp, transform.rotation);
+            Vector2 newDirection = new Vector2(0, 1); // 举例设置一个新的飞行方向
+            bullet.GetComponent<bullet>().SetDirection(newDirection);
+            temp.x += horiz_space;
         }
 
     }
@@ -70,10 +85,12 @@ public class flybullet : MonoBehaviour
         Vector2 temp = new Vector2();
         temp.x = _pos.position.x;
         temp.y = _pos.position.y;
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < vert; i++)
         {
-            temp.y += 2;
-            Instantiate(fly, temp, transform.rotation);
+            GameObject bullet = Instantiate(fly, temp, transform.rotation);
+            Vector2 newDirection = new Vector2(1,0); // 举例设置一个新的飞行方向
+            bullet.GetComponent<bullet>().SetDirection(newDirection);
+            temp.y += vert_space;
         }
 
     }
@@ -83,10 +100,13 @@ public class flybullet : MonoBehaviour
         Vector2 temp = new Vector2();
         temp.x = _pos.position.x;
         temp.y = _pos.position.y;
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < horiz; i++)
         {
-            temp.x -= 2;
-            Instantiate(fly, temp, transform.rotation);
+            
+            GameObject bullet = Instantiate(fly, temp, transform.rotation);
+            Vector2 newDirection = new Vector2(0, -1); // 举例设置一个新的飞行方向
+            bullet.GetComponent<bullet>().SetDirection(newDirection);
+            temp.x -= horiz_space;
         }
 
     }
@@ -96,10 +116,13 @@ public class flybullet : MonoBehaviour
         Vector2 temp = new Vector2();
         temp.x = _pos.position.x;
         temp.y = _pos.position.y;
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < vert; i++)
         {
             temp.y -= 2;
-            Instantiate(fly, temp, transform.rotation);
+            GameObject bullet =  Instantiate(fly, temp, transform.rotation);
+            Vector2 newDirection = new Vector2(-1, 0); // 举例设置一个新的飞行方向
+            bullet.GetComponent<bullet>().SetDirection(newDirection);
+            temp.y -= vert_space;
         }
 
     }
