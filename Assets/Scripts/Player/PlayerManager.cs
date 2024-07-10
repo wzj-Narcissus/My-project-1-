@@ -30,7 +30,7 @@ public class PlayerManager : MonoBehaviour
     public float maxHealth ;//最大生命
     public float criticalStrikeRate;//初始暴击率
     public float missRate;//初始闪避率
-    public int shield;//护盾
+    public float shield;//护盾
     public float damageMulti;//伤害倍率
     public float hurtMulti;//受伤倍率
     public float getMoneyRate;
@@ -67,6 +67,7 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        getdata();
         buffList=new List<Buff> ();
         theRB = GetComponent<Rigidbody2D>();
         playerAttack = GetComponent<PlayerAttack>();
@@ -198,6 +199,19 @@ public class PlayerManager : MonoBehaviour
             UpdateHp();
         }
 
+    }
+
+    void getdata()
+    {
+        speed = PlayerPrefs.GetFloat("1", 2f);
+        damage = PlayerPrefs.GetFloat("2", 1f);
+        health = PlayerPrefs.GetFloat("3", 3f);
+        maxHealth = PlayerPrefs.GetFloat("4", 5f);
+        criticalStrikeRate = PlayerPrefs.GetFloat("5", 5f);
+        missRate = PlayerPrefs.GetFloat("6", 5f);
+        shield = PlayerPrefs.GetFloat("7", 0f);
+        damageMulti = PlayerPrefs.GetFloat("8", 1f);
+        hurtMulti = PlayerPrefs.GetFloat("9", 1f);
     }
 
 

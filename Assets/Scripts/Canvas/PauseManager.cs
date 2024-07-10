@@ -27,11 +27,13 @@ public class PauseManager : MonoBehaviour
     }
     public void New_Start()
     {
+        PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(startScene);
         Time.timeScale = 1;
     }
     public void Return()
     {
+        PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(mainMenu);
         Time.timeScale = 1;
     }

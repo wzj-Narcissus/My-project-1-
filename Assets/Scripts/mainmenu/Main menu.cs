@@ -20,10 +20,12 @@ public class Mainmenu : MonoBehaviour
 
     public void startgame()
     {
+        PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(startname);
     }
     public void quitgame()
     {
+        PlayerPrefs.DeleteAll();
         Application.Quit();
         Debug.Log("quitting Game");
     }

@@ -248,7 +248,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -36, y: -19}
+  m_AnchoredPosition: {x: -35.999878, y: -19}
   m_SizeDelta: {x: -326.7898, y: -165.6333}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &472360631
@@ -666,7 +666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b52bf0b8980753439acb78d6c19bc9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startname: PlayScene
+  startname: Scene1
 --- !u!114 &1515464366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -696,10 +696,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

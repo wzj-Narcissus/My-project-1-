@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene1.unity
     guid: c905ceceb6a930f48bf01dc1882905aa
+  - enabled: 1
+    path: Assets/Scenes/buff choose.unity
+    guid: 026ebea5eff5d5e4c9bd7c0117a03bbd
   m_configObjects: {}

@@ -20,12 +20,16 @@ public class DeathMenu : MonoBehaviour
     }
     public void NewStart()
     {
+        PlayerPrefs.DeleteAll();
+
         Time.timeScale = 1;
         SceneManager.LoadScene(startScene);
       
     }
     public void Return()
     {
+        PlayerPrefs.DeleteAll();
+
         Time.timeScale = 1;
         SceneManager.LoadScene(mainMenu);
     }
