@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 152120375387882284}
   - component: {fileID: 5505750813347141652}
   m_Layer: 0
-  m_Name: treasure_box
+  m_Name: treasure_box 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a171695ce526f804e8d781b207084ae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: Treasure chests
+  nextScene: Treasure chests 3
 --- !u!61 &5505750813347141652
 BoxCollider2D:
   m_ObjectHideFlags: 0

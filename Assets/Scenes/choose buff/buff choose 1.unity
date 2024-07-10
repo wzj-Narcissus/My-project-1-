@@ -901,7 +901,7 @@ MonoBehaviour:
   monsterHealth: 0
   monsterMissRate: 0
   intMonsterShield: 0
-  nextname: Scene1
+  nextname: Scene3
   buttons:
   - {fileID: 637697457}
   - {fileID: 1750943708}

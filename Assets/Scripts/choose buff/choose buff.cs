@@ -150,10 +150,10 @@ public class ChooseBuff : MonoBehaviour
                 damage = (float)(damage + 0.5);
                 break;
             case 1:
-                criticalStrikeRate += 2f;
+                criticalStrikeRate += 20f;
                 break;
             case 2:
-                missRate += 1.5f;
+                missRate += 15f;
                 break;
             case 3:
                 speed += 0.5f;

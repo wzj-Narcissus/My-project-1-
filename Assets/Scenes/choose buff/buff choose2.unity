@@ -1206,7 +1206,13 @@ MonoBehaviour:
   shield: 0
   damageMulti: 1
   hurtMulti: 1
-  nextname: 
+  getMoneyRate: 0
+  intShield: 0
+  inthurt: 0
+  monsterHealth: 0
+  monsterMissRate: 0
+  intMonsterShield: 0
+  nextname: Scene4
   buttons:
   - {fileID: 1469011936}
   - {fileID: 1579599363}

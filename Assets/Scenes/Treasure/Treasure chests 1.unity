@@ -253,8 +253,7 @@ MonoBehaviour:
   monsterHealth: 0
   monsterMissRate: 0
   intMonsterShield: 0
-  nextname: buff choose
-  x: 0
+  nextname: buff choose 1
   _button: {fileID: 1381940348}
 --- !u!1 &1195296427
 GameObject:
