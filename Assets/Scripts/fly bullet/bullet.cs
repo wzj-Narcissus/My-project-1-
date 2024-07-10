@@ -39,7 +39,7 @@ public class bullet : MonoBehaviour
         if (other.gameObject.CompareTag("player"))
         {
             playerManager.GetDamaged(1f + playerManager.inthurt);
-            Destroy(gameObject);
+            
         }
         //if (other.gameObject.CompareTag("Env"))
         //{

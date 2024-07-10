@@ -9,6 +9,8 @@ TagManager:
   - monster
   - enemy1
   - enemy2
+  - Gaint
+  - Giant
   - enemy3
   layers:
   - Default
