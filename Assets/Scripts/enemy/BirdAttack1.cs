@@ -6,7 +6,7 @@ public class BirdAttack1 : MonoBehaviour
 {
     public Transform player; // 玩家的Transform组件
     public float attackRange = 5.0f; // 攻击范围
-    public float chargeTime = 1f; // 蓄力时间
+    public float chargeTime = 0.5f; // 蓄力时间
     public float attackSpeed = 5.0f; // 冲刺速度
     public float attackDuration = 1.0f; // 冲刺持续时间
     public float cooldownTime = 5.0f; // 技能冷却时间
