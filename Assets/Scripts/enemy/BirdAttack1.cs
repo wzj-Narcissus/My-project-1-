@@ -23,6 +23,8 @@ public class BirdAttack1 : MonoBehaviour
     public float hasSkillTime;
     BirdMove birdMove;
     public float attackDistance;
+    public float healthTime;
+
 
     public Transform target; // 玩家的Transform组件
     public float attackRange = 5.0f; // 敌人的攻击范围
@@ -50,6 +52,10 @@ public class BirdAttack1 : MonoBehaviour
     }
     private void Update()
     {
+        if(healthTime>0)
+        {
+            healthTime-= Time.deltaTime;
+        }
         if (Hp <= 0) Destroy(gameObject);
         if (playerManager.hasAttackTime <= 0 && hasRushTime <= 0)
         {
@@ -119,19 +125,27 @@ public class BirdAttack1 : MonoBehaviour
     {
         if (collision.gameObject.tag == "player" && hasRushTime > 0)
         {
-            playerManager.GetDamaged(1);
-            //Debug.Log("11");
+            if (healthTime > 0)
+            {
+
+            }
+            else
+            {
+                playerManager.GetDamaged(1);
+                healthTime = 0.5f;
+                //Debug.Log("11");
+            }
         }
-        else if (collision.gameObject.tag == "player" && hasRushTime <= 0&&hasGetDamageTime<=0)
+        else if (collision.gameObject.tag == "player" && hasRushTime <= 0 && hasGetDamageTime <= 0)
         {
             Debug.Log("1");
             GetDamaged();
             //flag = true;
             //hasGetDamageTime = 0.5f;
         }
-        else if(collision.gameObject.tag == "player")
+        else if (collision.gameObject.tag == "player")
         {
-            
+
             GetDamaged();
             GetDamaged();
         }

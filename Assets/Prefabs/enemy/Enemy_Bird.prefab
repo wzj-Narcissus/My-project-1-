@@ -103,12 +103,12 @@ MonoBehaviour:
   flag: 0
   hasGetDamageTime: 0
   direction: {x: 0, y: 0}
-  rushSpeed: 3
+  rushSpeed: 10
   hasRushTime: 0
-  rushTime: 0.07
+  rushTime: 0.1
   skillTime: 4
   hasSkillTime: 0
-  attackDistance: 5
+  attackDistance: 10
   target: {fileID: 0}
   attackRange: 5
   attackCooldown: 2

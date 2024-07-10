@@ -8,10 +8,13 @@ public class BirdMove : MonoBehaviour
     public float distance;
     public Transform target;// 要接近的目标物体的Transform组件
     public float speed = 0.01f; // 接近目标的速度
+
+    Rigidbody2D theRB;
     private void Awake()
     {
         target = GameObject.Find("Player").transform;
         attack = GetComponent<BirdAttack1>();
+        theRB = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -28,17 +31,21 @@ public class BirdMove : MonoBehaviour
                 Vector3 direction = target.position - transform.position;
                 distance = direction.magnitude;
 
+
+
+
+
                 // 如果距离小于一定值，则停止移动
-                if (distance < 0.1f)
-                {
-                    return;
-                }
+                //if (distance < 0.1f)
+                //{
+                //    return;
+                //}
 
-                // 计算移动方向
+                //// 计算移动方向
                 Vector3 moveDirection = direction.normalized;
-
-                // 根据速度和时间更新位置
-                transform.position += moveDirection * speed * Time.deltaTime;
+                theRB.velocity= moveDirection * speed;
+                //// 根据速度和时间更新位置
+                //transform.position += moveDirection * speed * Time.deltaTime;
             }
         }
     }
