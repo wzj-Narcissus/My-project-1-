@@ -4,111 +4,165 @@ using UnityEngine;
 
 public class BirdAttack1 : MonoBehaviour
 {
-    public Transform player; // 玩家的Transform组件
-    public float attackRange = 5.0f; // 攻击范围
-    public float chargeTime = 1f; // 蓄力时间
-    public float attackSpeed = 5.0f; // 冲刺速度
-    public float attackDuration = 1.0f; // 冲刺持续时间
-    public float cooldownTime = 5.0f; // 技能冷却时间
-    private float nextAttackTime; // 下次可以攻击的时间
-    private float attackStartTime;
-    private Vector3 direction;
-    public float MoveSpeed;  //控制蓄力时禁止移动
-    private bool isCharging = false; // 是否正在蓄力
-    private bool isAttacking = false; // 是否正在攻击
+
+    Collider2D playerCol;
+    Collider2D birdCol;
+    Collider2D edge;
+
+
+    PlayerManager playerManager;
+
+    public bool flag;
+    public float hasGetDamageTime;
+    public Vector2 direction;
+    public float rushSpeed;
+    public float hasRushTime;
+    public float rushTime;
+    Rigidbody2D theRB;
+    public float skillTime;
+    public float hasSkillTime;
+    BirdMove birdMove;
+    public float attackDistance;
+    public float healthTime;
+
+
+    public Transform target; // 玩家的Transform组件
+    public float attackRange = 5.0f; // 敌人的攻击范围
+
+    public float attackCooldown = 2.0f; // 攻击冷却时间
+    //private float nextAttackTime = 0.0f; // 下次可以攻击的时间
+
+    public float Hp;
+
     private void Awake()
     {
-        player = GameObject.Find("Player").transform;
+        target = GameObject.Find("Player").transform;
+        flag = false;
+        birdMove=GetComponent<BirdMove>();
+
+        playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
+
+
+        birdCol = GetComponent<Collider2D>();//怪物碰撞体
+        playerCol = GameObject.Find("Player").GetComponent<Collider2D>();
+        edge = GameObject.Find("Edge").GetComponent<Collider2D>();
+        Physics2D.IgnoreCollision(birdCol, playerCol, true);
+        theRB = GetComponent<Rigidbody2D>();
+        Physics2D.IgnoreCollision(birdCol, edge, true);
     }
-    void Update()
+    private void Update()
     {
-        // 检查是否到了可以再次使用技能的时间
-        if (Time.time >= nextAttackTime)
+        if(healthTime>0)
         {
-            // 检测玩家是否在攻击范围内
-            if (Vector3.Distance(transform.position, player.position) <= attackRange &&
-                !isCharging &&
-                !isAttacking)
+            healthTime-= Time.deltaTime;
+        }
+        if (Hp <= 0) Destroy(gameObject);
+        if (playerManager.hasAttackTime <= 0 && hasRushTime <= 0)
+        {
+            Physics2D.IgnoreCollision(birdCol, playerCol, true);
+            //Physics2D.IgnoreCollision(dogColClone, playerCol, true);
+        }
+
+
+        if (hasSkillTime <= 0)
+        {
+            if (birdMove.distance < attackDistance)
             {
-                StartCharging();
+                flag = true;
+                hasGetDamageTime = 0.5f;
+                hasSkillTime = skillTime;
             }
         }
 
-        // 检查蓄力是否完成并开始攻击
-        if (isCharging && (Time.time - attackStartTime) >= chargeTime)
+        else
         {
-            PerformAttack();
+            hasSkillTime -= Time.deltaTime;
         }
-
-        // 如果正在攻击，检查攻击是否结束
-        if (isAttacking && (Time.time - nextAttackTime) >= attackDuration)
+        
+        if (flag == true)
         {
-            EndAttack();
+            if (hasGetDamageTime > 0)
+            {
+                hasGetDamageTime -= Time.deltaTime;
+            }
+
+            else
+            {
+                hasRushTime = rushTime;
+                direction = new Vector2(playerManager.transform.position.x - transform.position.x, playerManager.transform.position.y - transform.position.y);
+                Physics2D.IgnoreCollision(birdCol, playerCol, false);
+                theRB.velocity = direction.normalized * rushSpeed;
+                flag = false;
+
+                //if (Vector3.Distance(transform.position, target.position) <= attackRange)
+                //{
+                //    // 检查是否已经过了冷却时间
+                //    if (Time.time >= nextAttackTime)
+                //    {
+                //        AttackPlayer();
+                //        // 重置下次攻击时间
+                //        nextAttackTime = Time.time + attackCooldown;
+                //    }
+                //}
+            }
+
         }
-    }
-
-    void StartCharging()
-    {
-        if (Time.time >= nextAttackTime) // 确保技能不在冷却中
+        if (Input.GetMouseButtonDown(0))
         {
-            
-            isCharging = true;
-            nextAttackTime = Time.time + cooldownTime; // 设置技能冷却时间
-            attackStartTime = Time.time;
-            // 可以在这里添加蓄力的动画和音效
-            Debug.Log("鸟正在蓄力！"); 
-            enemyMovement scriptB = GetComponent<enemyMovement>();
-            MoveSpeed = scriptB.speed;
-            scriptB.speed = 0;
-        }
-    }
-
-    void PerformAttack()
-    {
-        isCharging = false;
-        isAttacking = true;
-        // 向玩家方向冲刺
-        Vector3 direction = (player.position - transform.position).normalized;
-        // 可以在这里添加冲刺的动画和音效
-        // 这里可以添加移动逻辑，例如：
-        StartCoroutine(MoveTowardsPlayer(direction)); 
-        Debug.Log("鸟正在攻击！"); 
-        enemyMovement scriptB = GetComponent<enemyMovement>();
-        scriptB.speed = MoveSpeed;
-
-    }
-
-    IEnumerator MoveTowardsPlayer(Vector3 direction)
-    {
-        float travelTime = 0;
-        while (travelTime < attackDuration)
-        {
-            transform.position += direction * attackSpeed * Time.deltaTime;
-            travelTime += Time.deltaTime;
-            yield return null;
+            Physics2D.IgnoreCollision(birdCol, playerCol, false);
         }
     }
 
-    void EndAttack()
+    //private void AttackPlayer()
+    //{
+    //    // 这里实现攻击逻辑，例如：
+    //    // - 调用动画系统播放攻击动画
+    //    // - 对玩家造成伤害
+    //    //Debug.Log("敌人近战攻击玩家！");
+    //    playerManager.GetDamaged(1);
+    //}
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        isAttacking = false;
-        // 可以在这里添加攻击结束的动画和音效
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        // 检查是否在蓄力期间受到碰撞
-        if (isCharging)
+        if (collision.gameObject.tag == "player" && hasRushTime > 0)
         {
-            Die();
+            if (healthTime > 0)
+            {
+
+            }
+            else
+            {
+                playerManager.GetDamaged(1);
+                healthTime = 0.5f;
+                //Debug.Log("11");
+            }
+        }
+        else if (collision.gameObject.tag == "player" && hasRushTime <= 0 && hasGetDamageTime <= 0)
+        {
+            Debug.Log("1");
+            GetDamaged();
+            //flag = true;
+            //hasGetDamageTime = 0.5f;
+        }
+        else if (collision.gameObject.tag == "player")
+        {
+
+            GetDamaged();
+            GetDamaged();
         }
     }
 
-    void Die()
+    private void GetDamaged()
     {
-        // 杀死怪物的逻辑，例如播放死亡动画，然后销毁
-        Debug.Log("鸟在蓄力期间受到碰撞，死亡！");
-        // 可以在这里添加死亡动画和音效
-        Destroy(gameObject);
+        Debug.Log("GETDAMAGED");
+        if (Random.Range(0, 100) > playerManager.criticalStrikeRate)
+        {
+            Hp -= playerManager.damage * playerManager.damageMulti;
+        }
+        else
+        {
+            Hp -= playerManager.damage * playerManager.damageMulti * 2;
+        }
+
+
     }
 }

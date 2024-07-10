@@ -21,10 +21,10 @@ public class DogAttack : MonoBehaviour
 
 
     public Transform target; // 玩家的Transform组件
-    public float attackRange = 5.0f; // 敌人的攻击范围
+    //public float attackRange = 5.0f; // 敌人的攻击范围
 
-    public float attackCooldown = 2.0f; // 攻击冷却时间
-    private float nextAttackTime = 0.0f; // 下次可以攻击的时间
+    //public float attackCooldown = 2.0f; // 攻击冷却时间
+    //private float nextAttackTime = 0.0f; // 下次可以攻击的时间
 
     public float Hp;
 
@@ -32,6 +32,7 @@ public class DogAttack : MonoBehaviour
     {
         target = GameObject.Find("Player").transform;
         flag = false;
+
 
         playerManager=GameObject.Find("Player").GetComponent<PlayerManager>();
         
