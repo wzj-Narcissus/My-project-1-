@@ -21,10 +21,10 @@ public class flybullet : MonoBehaviour
     {
         x = Random.Range(0, 4);
         y = 0;
-        horiz = 6;
-        vert = 4;
-        horiz_space = 2;
-        vert_space = 2;
+        horiz = 8;
+        vert = 5;
+        horiz_space = 3;
+        vert_space = 3;
     }
 
     private void Update()
@@ -34,7 +34,8 @@ public class flybullet : MonoBehaviour
 
         {
             four(x);
-            y = 1; 
+            beingtime = 0;
+            x = Random.Range(0, 4);
         }
 
         
@@ -118,7 +119,7 @@ public class flybullet : MonoBehaviour
         temp.y = _pos.position.y;
         for (int i = 0; i < vert; i++)
         {
-            temp.y -= 2;
+      
             GameObject bullet =  Instantiate(fly, temp, transform.rotation);
             Vector2 newDirection = new Vector2(-1, 0); // 举例设置一个新的飞行方向
             bullet.GetComponent<bullet>().SetDirection(newDirection);
