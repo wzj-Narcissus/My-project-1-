@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Treasurechests1 : MonoBehaviour
+public class Treasurechests : MonoBehaviour
 {
 
 
