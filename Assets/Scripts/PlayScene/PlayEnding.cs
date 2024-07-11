@@ -39,5 +39,23 @@ public class PlayEnding : MonoBehaviour
             //SceneManager.LoadScene(nextScene);
 
         }
+        if(GameObject.FindWithTag("enemy1") == null)
+        {
+            Debug.Log("1");
+        }
+
+        if (GameObject.FindWithTag("enemy2") == null)
+        {
+            Debug.Log("2");
+        }
+        if (GameObject.FindWithTag("enemy3") == null)
+        {
+            Debug.Log("3");
+        }
+        if (GameObject.FindWithTag("Giant") == null)
+        {
+            Debug.Log("4");
+        }
+
     }
 }
