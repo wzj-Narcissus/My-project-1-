@@ -101,7 +101,7 @@ public class Treasurechests : MonoBehaviour
 
         temp = new Buffs();
         temp.sometext = "风险";
-        temp.name = "收到的伤害减少0.5点，同时造成的碰撞伤害减少0.5点、速度减少0.5点";
+        temp.name = "收到的伤害减少0.5点，同时造成的碰撞伤害减少0.5点、速度减少0.5点,造成伤害最少为0.5";
         mybuffs.Add(temp);
 
         temp = new Buffs();
@@ -248,6 +248,10 @@ public class Treasurechests : MonoBehaviour
         if (health > 5)
         {
             health = 5;
+        }
+        if (damage - intShield < 0)
+        {
+            intShield -= 0.5f;
         }
         PlayerPrefs.SetFloat("1", speed);
         PlayerPrefs.SetFloat("2", damage);
