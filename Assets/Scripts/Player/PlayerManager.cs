@@ -222,6 +222,8 @@ public class PlayerManager : MonoBehaviour
         monsterHealth = PlayerPrefs.GetFloat("13", 1f);
         monsterMissRate = PlayerPrefs.GetFloat("14", 0f);
         intMonsterShield = PlayerPrefs.GetFloat("15", 0f);
+
+        money = PlayerPrefs.GetInt("16", 0);
     }
 
 
