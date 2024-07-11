@@ -49,11 +49,11 @@ public class AngrySquirrelAttack1 : MonoBehaviour
 
         target = GameObject.Find("Player").transform; //获取玩家位置，注意大小写
     }
-    public void SetAFalse()
+    public void SetAFalse()//将攻击动画关闭函数
     {
         _Animator.SetBool("isAttacking", false);
     }
-    public void SetHFalse()
+    public void SetHFalse()//将受击动画关闭函数
     {
         _Animator.SetBool("isHited", false);
     }
@@ -78,7 +78,7 @@ public class AngrySquirrelAttack1 : MonoBehaviour
         if ((Time.time - Attime) >= interval)
         {
             _Animator.SetBool("isAttacking", true);
-            Invoke("SetAFalse", 0.5f);
+            Invoke("SetAFalse", 0.4f);
             //执行发射
             Shoot();
             flag1 = true;
