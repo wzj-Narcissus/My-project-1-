@@ -109,7 +109,7 @@ public class Treasurechests1 : MonoBehaviour
 
         temp = new Buffs();
         temp.sometext = "风险";
-        temp.name = "收到的伤害减少0.5点，同时造成的碰撞伤害减少0.5点、速度减少0.5点,造成伤害最少为0.5";
+        temp.name = "收到的伤害减少0.5点，同时造成的碰撞伤害减少0.5点、速度减少0.5点,造成伤害最少为0.5,减少伤害最多为0.5点";
         mybuffs.Add(temp);
 
         temp = new Buffs();
@@ -129,7 +129,7 @@ public class Treasurechests1 : MonoBehaviour
 
         temp = new Buffs();
         temp.sometext = "怪物暴动";
-        temp.name = "怪物闪避率提升20%";
+        temp.name = "怪物闪避率提升15%";
         mybuffs.Add(temp);
 
 
@@ -216,10 +216,10 @@ public class Treasurechests1 : MonoBehaviour
                 inthurt += 0.5f;
                 break;
             case 13:
-                monsterMissRate += 0.5f;
+                monsterHealth += 0.5f;
                 break;
             case 14:
-                monsterMissRate += 0.2f;
+                monsterMissRate += 15f;
                 break;
             case 15:
                 getMoneyRate -= 20f;
@@ -263,10 +263,7 @@ public class Treasurechests1 : MonoBehaviour
         {
             health = 5;
         }
-        if (damage - intShield < 0)
-        {
-            intShield -= 0.5f;
-        }
+
         PlayerPrefs.SetFloat("1", speed);
         PlayerPrefs.SetFloat("2", damage);
         PlayerPrefs.SetFloat("3", health);
