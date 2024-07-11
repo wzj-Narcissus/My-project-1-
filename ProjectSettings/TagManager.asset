@@ -16,6 +16,7 @@ TagManager:
   - enemy4
   - enemy5
   - enemy6
+  - music
   layers:
   - Default
   - TransparentFX

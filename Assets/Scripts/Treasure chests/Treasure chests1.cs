@@ -155,7 +155,7 @@ public class Treasurechests1 : MonoBehaviour
         {
             _button.GetComponentInChildren<Text>().text = "Buff: " + mybuffs[x].sometext + " - " + mybuffs[x].name;
         }
-        if(counttime >4f)
+        if(counttime >5f)
         {
             change(x);
             loaddate();

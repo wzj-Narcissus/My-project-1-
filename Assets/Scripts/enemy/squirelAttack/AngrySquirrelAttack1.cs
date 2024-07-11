@@ -8,7 +8,7 @@ public class AngrySquirrelAttack1 : MonoBehaviour
     Collider2D squirrelCol;
     Collider2D edge;
     PlayerManager playerManager;
-
+    private Animator _Animator;
 
 
 
@@ -34,7 +34,7 @@ public class AngrySquirrelAttack1 : MonoBehaviour
     private void Awake()
     {
 
-
+        _Animator = GetComponent<Animator>();
         playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
         squirrelCol = GetComponent<Collider2D>();//怪物碰撞体
         playerCol = GameObject.Find("Player").GetComponent<Collider2D>();
@@ -49,7 +49,14 @@ public class AngrySquirrelAttack1 : MonoBehaviour
 
         target = GameObject.Find("Player").transform; //获取玩家位置，注意大小写
     }
-
+    public void SetAFalse()
+    {
+        _Animator.SetBool("isAttacking", false);
+    }
+    public void SetHFalse()
+    {
+        _Animator.SetBool("isHited", false);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -64,12 +71,14 @@ public class AngrySquirrelAttack1 : MonoBehaviour
         }
 
 
-
+     
 
         if (Hp <= 0) Destroy(gameObject);
 
         if ((Time.time - Attime) >= interval)
         {
+            _Animator.SetBool("isAttacking", true);
+            Invoke("SetAFalse", 0.5f);
             //执行发射
             Shoot();
             flag1 = true;
@@ -135,6 +144,8 @@ public class AngrySquirrelAttack1 : MonoBehaviour
         if (collision.gameObject.tag == "player")
         {
             GetDamaged();
+            _Animator.SetBool("isHited", true);
+            Invoke("SetHFalse", 0.2f);
         }
     }
     private void GetDamaged()
