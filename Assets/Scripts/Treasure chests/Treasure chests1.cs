@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Treasurechests1 : MonoBehaviour
+public class Treasurechests : MonoBehaviour
 {
 
 
@@ -50,7 +50,7 @@ public class Treasurechests1 : MonoBehaviour
 
         getdata();
 
-        x = Random.Range(0, 14);
+        x = Random.Range(0, 16);
 
         Buffs temp;
 
@@ -59,6 +59,10 @@ public class Treasurechests1 : MonoBehaviour
         temp.name = "攻击增加0.5";
         mybuffs.Add(temp);
 
+        temp = new Buffs();
+        temp.sometext = "攻击力";
+        temp.name = "攻击减少0.5";
+        mybuffs.Add(temp);
 
         temp = new Buffs();
         temp.sometext = "暴击率";
@@ -93,6 +97,10 @@ public class Treasurechests1 : MonoBehaviour
         temp.name = "移速减少0.5点";
         mybuffs.Add(temp);
 
+        temp = new Buffs();
+        temp.sometext = "生命上限";
+        temp.name = "生命上限提升1点";
+        mybuffs.Add(temp);
 
         temp = new Buffs();
         temp.sometext = "风险";
@@ -165,49 +173,55 @@ public class Treasurechests1 : MonoBehaviour
             case 0:
                 damage = (float)(damage + 0.5);
                 break;
-
             case 1:
-                criticalStrikeRate += 2f;
+                damage = (float)(damage - 0.5);
+
                 break;
             case 2:
-                criticalStrikeRate -= 2f;
+                criticalStrikeRate += 2f;
                 break;
             case 3:
-                missRate += 1.5f;
+                criticalStrikeRate -= 2f;
                 break;
             case 4:
-                missRate -= 1.5f;
+                missRate += 1.5f;
                 break;
             case 5:
-                speed += 0.5f;
+                missRate -= 1.5f;
                 break;
             case 6:
+                speed += 0.5f;
+                break;
+            case 7:
                 speed -= 0.5f;
                 break;
-
-            case 7:
+            case 8:
+                maxHealth += 1f;
+                health += 1f;
+                break;
+            case 9:
                 damageMulti += 1;
                 hurtMulti += 1;
                 break;
-            case 8:
+            case 10:
                 speed -= 0.5f;
                 hurtMulti *= 0.5f;
                 damageMulti *= 0.5f;
                 break;
-            case 9:
+            case 11:
                 speed += 3f;
                 hurtMulti *= 2;
                 break;
-            case 10:
+            case 12:
                 inthurt += 0.5f;
                 break;
-            case 11:
+            case 13:
                 monsterMissRate += 0.5f;
                 break;
-            case 12:
+            case 14:
                 monsterMissRate += 0.2f;
                 break;
-            case 13:
+            case 15:
                 getMoneyRate -= 20f;
                 break;
 
