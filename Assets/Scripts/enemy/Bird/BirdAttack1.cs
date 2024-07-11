@@ -145,7 +145,7 @@ public class BirdAttack1 : MonoBehaviour
             }
             else
             {
-                playerManager.GetDamaged(1+ playerManager.inthurt);
+                playerManager.GetDamaged(0.5f+ playerManager.inthurt);
                 healthTime = 0.5f;
                 //Debug.Log("11");
             }
