@@ -241,6 +241,14 @@ public class Treasurechests : MonoBehaviour
 
     public void loaddate()
     {
+        if (maxHealth > 5)
+        {
+            maxHealth = 5;
+        }
+        if (health > 5)
+        {
+            health = 5;
+        }
         PlayerPrefs.SetFloat("1", speed);
         PlayerPrefs.SetFloat("2", damage);
         PlayerPrefs.SetFloat("3", health);

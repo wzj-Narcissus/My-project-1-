@@ -157,6 +157,7 @@ public class shop : MonoBehaviour
 
     public void loaddate()
     {
+
         PlayerPrefs.SetFloat("1", speed);
         PlayerPrefs.SetFloat("2", damage);
         PlayerPrefs.SetFloat("3", health);

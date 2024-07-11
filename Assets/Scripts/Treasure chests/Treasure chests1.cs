@@ -99,7 +99,7 @@ public class Treasurechests1 : MonoBehaviour
 
         temp = new Buffs();
         temp.sometext = "生命上限";
-        temp.name = "生命上限提升1点";
+        temp.name = "生命上限提升1点,最大为5";
         mybuffs.Add(temp);
 
         temp = new Buffs();
@@ -255,6 +255,14 @@ public class Treasurechests1 : MonoBehaviour
 
     public void loaddate()
     {
+        if (maxHealth > 5)
+        {
+            maxHealth = 5;
+        }
+        if (health > 5)
+        {
+            health = 5;
+        }
         PlayerPrefs.SetFloat("1", speed);
         PlayerPrefs.SetFloat("2", damage);
         PlayerPrefs.SetFloat("3", health);
