@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &50173669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,10 +153,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 936837ec99441c6478aa71d442f68e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alertRange: 1
-  MoveOrNot: 0
-  alertDuration: 5
-  relaxDuration: 3
+  wantDistance: 0
+  distance: 0
+  direction: {x: 0, y: 0}
+  flag: 0
+  relaxTime: 0
+  Hp: 0
 --- !u!212 &50173670
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -472,14 +474,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb2c10ee48448441a75b8074cdc85c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Hp: 0
   BulletPrefab: {fileID: 3790427360982342288, guid: a96a2430997eb30429c101c3608b6fd0, type: 3}
   target: {fileID: 0}
   horizontalDifference: 0
   verticalDifference: 0
   interval: 4
   Attime: 0
-  bulletDir: {x: 0, y: 0}
-  emitInterval: 1
+  direction: {x: 0, y: 0}
 --- !u!1 &763159445
 GameObject:
   m_ObjectHideFlags: 0
