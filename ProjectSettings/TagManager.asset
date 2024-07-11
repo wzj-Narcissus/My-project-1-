@@ -13,6 +13,9 @@ TagManager:
   - Giant
   - enemy3
   - Hp
+  - enemy4
+  - enemy5
+  - enemy6
   layers:
   - Default
   - TransparentFX
