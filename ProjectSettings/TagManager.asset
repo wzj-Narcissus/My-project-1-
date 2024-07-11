@@ -17,6 +17,7 @@ TagManager:
   - enemy5
   - enemy6
   - music
+  - shop
   layers:
   - Default
   - TransparentFX
