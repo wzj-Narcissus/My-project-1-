@@ -1351,7 +1351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cee3ac2036c03b40b0645692e5d73d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScene: PlayScene
+  startScene: Scene1
   mainMenu: Main menu
 --- !u!1 &1988572879
 GameObject:
@@ -1687,18 +1687,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 864650526366347610, guid: 693b302f3fc6b6e4182e5ba8665ecc27, type: 3}
-      propertyPath: mainMenu
-      value: Main menu
-      objectReference: {fileID: 0}
-    - target: {fileID: 864650526366347610, guid: 693b302f3fc6b6e4182e5ba8665ecc27, type: 3}
-      propertyPath: startScene
-      value: PlayScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 1125131328482659029, guid: 693b302f3fc6b6e4182e5ba8665ecc27, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6295888583534700024, guid: 693b302f3fc6b6e4182e5ba8665ecc27, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1782,10 +1770,6 @@ PrefabInstance:
     - target: {fileID: 8505353126101912087, guid: 693b302f3fc6b6e4182e5ba8665ecc27, type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 8505353126101912087, guid: 693b302f3fc6b6e4182e5ba8665ecc27, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
