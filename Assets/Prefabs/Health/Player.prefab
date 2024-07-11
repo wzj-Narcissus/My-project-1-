@@ -15,6 +15,10 @@ GameObject:
   - component: {fileID: 6662274260293842700}
   - component: {fileID: 4090317805997221359}
   - component: {fileID: 8165657592518809056}
+  - component: {fileID: -2792211402262420316}
+  - component: {fileID: 2670862426221162596}
+  - component: {fileID: 950821083727362011}
+  - component: {fileID: 5714791353990694760}
   m_Layer: 0
   m_Name: Player
   m_TagString: player
@@ -76,7 +80,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2136670001
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: e6d3867ee59eddb45b5efb207a0b37e3, type: 3}
   m_Color: {r: 0.99371064, g: 0.99371064, b: 0.99371064, a: 1}
@@ -132,8 +136,8 @@ MonoBehaviour:
   minDistance: 0.1
   maxDistance: 10
   hasAttackTime: 0
-  attackTime: 0.3
-  rushNum: 1.5
+  attackTime: 0.2
+  rushNum: 1
   speed: 2
   damage: 1
   health: 3
@@ -141,13 +145,18 @@ MonoBehaviour:
   criticalStrikeRate: 5
   missRate: 5
   shield: 0
-  realSpeed: 3
-  realDamage: 2
-  realHealth: 0
-  realCriticalStrikeRate: 0
-  realMissRate: 0
-  realShield: 0
+  damageMulti: 1
+  hurtMulti: 1
+  getMoneyRate: 60
+  intShield: 0
+  inthurt: 0
+  monsterHealth: 1
+  monsterMissRate: 0
+  intMonsterShield: 0
   experience: 0
+  money: 0
+  deathPrefab: {fileID: 1210580889611543511, guid: 80d1e057c83424a4fab14774f5ca2d5a, type: 3}
+  isRight: 0
 --- !u!114 &6662274260293842700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,3 +218,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ab33a9b0423c745aee055b84903880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &-2792211402262420316
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741170898550041895}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 512aa08bca95abb4c8191d4d2ac46168, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2670862426221162596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741170898550041895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b65d660ca0efcb4392560748faa4787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &950821083727362011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741170898550041895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d8407f8bae23304ca861f2a2d2fbc0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prefab0_5: {fileID: 0}
+  Prefab1_5: {fileID: 0}
+  Prefab2_5: {fileID: 0}
+  Prefab3_5: {fileID: 0}
+  Prefab4_5: {fileID: 0}
+  Prefab1: {fileID: 0}
+  Prefab2: {fileID: 0}
+  Prefab3: {fileID: 0}
+  Prefab4: {fileID: 0}
+  Prefab5: {fileID: 0}
+--- !u!114 &5714791353990694760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1741170898550041895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fa110b6cfb7160408d302ebd347d233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene: buff choose
+  flag: 0
+  prefab: {fileID: 5782087066630147240, guid: a27cf00645ba59e4daba69ac8ac5e6f0, type: 3}

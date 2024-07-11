@@ -18,7 +18,7 @@ public class FlipX : MonoBehaviour
     }
     public void flipx(SpriteRenderer spriteRenderer,Vector2 direction)
     {
-        if(direction.x>0)spriteRenderer.flipX= false;
-        if(direction.x<0) spriteRenderer.flipX = true;
+        if(direction.x>0)spriteRenderer.flipX= true;
+        if(direction.x<0) spriteRenderer.flipX = false;
     }
 }

@@ -40,8 +40,8 @@ public class PlayerManager : MonoBehaviour
     public float monsterHealth;//怪物血量加成
     public float monsterMissRate;//怪物闪避率
     public float intMonsterShield;//离散型怪物减伤
+    private Animator _Animator;
 
-   
 
     public float experience;//经验
     public int money;
@@ -64,6 +64,7 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _Animator = GetComponent<Animator>();
         getdata();
         buffList=new List<Buff> ();
         theRB = GetComponent<Rigidbody2D>();
@@ -162,12 +163,18 @@ public class PlayerManager : MonoBehaviour
     public void UpdateHp()
     {
         healthUp.UpdateHp((int)(2 * health));
-    } 
+    }
 
+    public void SetHFalse()//将受击动画关闭函数
+    {
+        _Animator.SetBool("isHited", false);
+    }
     public void GetDamaged(float damage)
     {
         if (Random.Range(0, 100) > missRate)
         {
+            _Animator.SetBool("isHited", true);
+            Invoke("SetHFalse", 0.3f);
             if (shield >= 1)
             {
                 Debug.Log("Shield!");
