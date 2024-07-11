@@ -105,7 +105,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   flag: 0
   relaxTime: 0
-  Hp: 2
+  Hp: 10
 --- !u!114 &4531427927746031862
 MonoBehaviour:
   m_ObjectHideFlags: 0

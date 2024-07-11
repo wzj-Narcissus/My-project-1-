@@ -9,6 +9,7 @@ public class hedgehogAttack : MonoBehaviour
     Collider2D playerCol;
     Collider2D birdCol;
     Collider2D edge;
+    private Animator _Animator;
 
 
     PlayerManager playerManager;
@@ -35,7 +36,8 @@ public class hedgehogAttack : MonoBehaviour
     //public float relaxDuration; // 放松状态持续时间
     private void Awake()
     {
-        
+
+        _Animator = GetComponent<Animator>();
 
         playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
 
@@ -62,6 +64,10 @@ public class hedgehogAttack : MonoBehaviour
         //MoveOrNot = true; // 设置本体可以移动
         //player = GameObject.Find("Player").transform;
     }
+    public void SetHFalse()//将受击动画关闭函数
+    {
+        _Animator.SetBool("isHited", false);
+    }
     private void Update()
     {
         if (playerManager.hasAttackTime <= 0 )
@@ -83,6 +89,7 @@ public class hedgehogAttack : MonoBehaviour
         if(distance> wantDistance&& relaxTime <= 0&&flag==true)
         {
             flag = false;
+            _Animator.SetBool("isAttacking", false);
             relaxTime = 5;
         }
         if(relaxTime>0)relaxTime-=Time.deltaTime;
@@ -96,7 +103,7 @@ public class hedgehogAttack : MonoBehaviour
     void GetAlarm()
     {
         flag = true;
-        
+        _Animator.SetBool("isAttacking", true);
     }
 
     //private void CheckPlayerProximity()
@@ -169,6 +176,8 @@ public class hedgehogAttack : MonoBehaviour
     }
     private void GetDamaged()
     {
+        _Animator.SetBool("isHited", true);
+        Invoke("SetHFalse", 0.3f);
         if (Random.Range(0, 100) > playerManager.monsterMissRate)
         {
             if (Random.Range(0, 100) > playerManager.criticalStrikeRate)
