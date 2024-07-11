@@ -38,6 +38,7 @@ public class Treasurebox : MonoBehaviour
             PlayerPrefs.SetFloat("13", playerManager.monsterHealth);
             PlayerPrefs.SetFloat("14", playerManager.monsterMissRate);
             PlayerPrefs.SetFloat("15", playerManager.intMonsterShield);
+            PlayerPrefs.SetInt("16", playerManager.money);
             SceneManager.LoadScene(nextScene);
             Destroy(gameObject);
         }

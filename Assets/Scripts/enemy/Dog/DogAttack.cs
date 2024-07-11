@@ -77,7 +77,7 @@ public class DogAttack : MonoBehaviour
                 hasRushTime = rushTime;
                 direction = new Vector2(playerManager.transform.position.x - transform.position.x, playerManager.transform.position.y - transform.position.y);
                 Physics2D.IgnoreCollision(dogCol, playerCol, false);
-                theRB.velocity = direction.normalized * rushSpeed;
+                theRB.velocity = direction.normalized * rushSpeed*2;
                 flag = false;
 
                 //if (Vector3.Distance(transform.position, target.position) <= attackRange)
@@ -131,7 +131,7 @@ public class DogAttack : MonoBehaviour
             _Animator.SetBool("isHited", true);
             Invoke("SetHFalse", 0.2f);
             flag = true;
-            hasGetDamageTime = 0.5f;
+            hasGetDamageTime = 0.2f;
         }
     }
 
