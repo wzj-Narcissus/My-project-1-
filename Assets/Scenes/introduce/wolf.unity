@@ -314,7 +314,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0.00015258789}
+  m_AnchoredPosition: {x: 0, y: 0.00012207031}
   m_SizeDelta: {x: 0.00024414, y: -0.00036621}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &535138567
@@ -516,7 +516,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1055454611}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1116148228}
+        m_TargetAssemblyTypeName: changescene, Assembly-CSharp
+        m_MethodName: whenbutton2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1055454611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -642,6 +654,7 @@ GameObject:
   - component: {fileID: 1116148226}
   - component: {fileID: 1116148225}
   - component: {fileID: 1116148224}
+  - component: {fileID: 1116148228}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -737,6 +750,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1116148228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116148223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee7ce8e31b409c488c03efa9e7e9023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstscene: 
+  nextscene: squirrel
+  prescene: bird
 --- !u!1 &1155586340
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,7 +847,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1155586343}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1116148228}
+        m_TargetAssemblyTypeName: changescene, Assembly-CSharp
+        m_MethodName: whenbutton1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1155586343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1181,7 +1221,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1918863959}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1116148228}
+        m_TargetAssemblyTypeName: changescene, Assembly-CSharp
+        m_MethodName: whenbutton3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1918863959
 MonoBehaviour:
   m_ObjectHideFlags: 0

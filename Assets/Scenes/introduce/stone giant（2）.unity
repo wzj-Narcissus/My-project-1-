@@ -305,6 +305,7 @@ GameObject:
   - component: {fileID: 810815624}
   - component: {fileID: 810815623}
   - component: {fileID: 810815622}
+  - component: {fileID: 810815626}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -399,6 +400,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &810815626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810815621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee7ce8e31b409c488c03efa9e7e9023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstscene: 
+  nextscene: 
+  prescene: "stone giant\uFF081\uFF09"
 --- !u!1 &1011951004
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,7 +449,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0.00015258789}
+  m_AnchoredPosition: {x: 0, y: 0.00012207031}
   m_SizeDelta: {x: 0.00024414, y: -0.00036621}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1011951006
@@ -703,7 +719,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1724969080}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 810815626}
+        m_TargetAssemblyTypeName: changescene, Assembly-CSharp
+        m_MethodName: whenbutton3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1724969080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -978,7 +1006,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2022320968}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 810815626}
+        m_TargetAssemblyTypeName: changescene, Assembly-CSharp
+        m_MethodName: whenbutton1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2022320968
 MonoBehaviour:
   m_ObjectHideFlags: 0

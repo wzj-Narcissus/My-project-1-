@@ -62,4 +62,37 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/shop.unity
     guid: dd92ac7cdbbd2d740becdf4c1780e6f3
+  - enabled: 1
+    path: Assets/Scenes/introduce/operation.unity
+    guid: 5f272a0e1d5efec499fce47de6856e2e
+  - enabled: 1
+    path: Assets/Scenes/introduce/back.unity
+    guid: 1c4db729232608a499ad69ae928e7a13
+  - enabled: 1
+    path: Assets/Scenes/introduce/bird.unity
+    guid: bfdb9b61d123ebf45a6877c58cc8cbed
+  - enabled: 1
+    path: Assets/Scenes/introduce/wolf.unity
+    guid: 3dfa16d33e5b6e54d8a6645063a213d2
+  - enabled: 1
+    path: Assets/Scenes/introduce/squirrel.unity
+    guid: d7b24b5bfbb921e42bbbed2c80929676
+  - enabled: 1
+    path: Assets/Scenes/introduce/cat.unity
+    guid: ba085c52201257847a4c5443d0aefa28
+  - enabled: 1
+    path: Assets/Scenes/introduce/ericius.unity
+    guid: cba34459198cb98429176fd1fce0e68e
+  - enabled: 1
+    path: Assets/Scenes/introduce/hot squirrel.unity
+    guid: ff8c06770d227814aa9a041f2bb717b6
+  - enabled: 1
+    path: "Assets/Scenes/introduce/stone giant\uFF081\uFF09.unity"
+    guid: bf3711fd2a75b874eb41ed0086d73fde
+  - enabled: 1
+    path: "Assets/Scenes/introduce/stone giant\uFF082\uFF09.unity"
+    guid: 553cb67c5a4c8ef44a366e293e78aaef
+  - enabled: 1
+    path: Assets/Scenes/introduce/scarecrow.unity
+    guid: 0e5d32f1873109c4ea367581242b8405
   m_configObjects: {}

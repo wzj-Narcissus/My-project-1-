@@ -178,16 +178,16 @@ public class Treasurechests1 : MonoBehaviour
 
                 break;
             case 2:
-                criticalStrikeRate += 2f;
+                criticalStrikeRate += 20f;
                 break;
             case 3:
-                criticalStrikeRate -= 2f;
+                criticalStrikeRate -= 20f;
                 break;
             case 4:
-                missRate += 1.5f;
+                missRate += 15f;
                 break;
             case 5:
-                missRate -= 1.5f;
+                missRate -= 15f;
                 break;
             case 6:
                 speed += 0.5f;
