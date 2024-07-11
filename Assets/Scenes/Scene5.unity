@@ -2218,7 +2218,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 864650526366347610, guid: 693b302f3fc6b6e4182e5ba8665ecc27, type: 3}
       propertyPath: startScene
-      value: PlayScene
+      value: Scene1
       objectReference: {fileID: 0}
     - target: {fileID: 1125131328482659029, guid: 693b302f3fc6b6e4182e5ba8665ecc27, type: 3}
       propertyPath: m_UiScaleMode
