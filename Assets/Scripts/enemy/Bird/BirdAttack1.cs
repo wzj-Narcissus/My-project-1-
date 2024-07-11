@@ -8,6 +8,7 @@ public class BirdAttack1 : MonoBehaviour
     Collider2D playerCol;
     Collider2D birdCol;
     Collider2D edge;
+    private Animator _Animator;
 
 
     PlayerManager playerManager;
@@ -36,6 +37,8 @@ public class BirdAttack1 : MonoBehaviour
 
     private void Awake()
     {
+        _Animator = GetComponent<Animator>();
+
         target = GameObject.Find("Player").transform;
         flag = false;
         birdMove=GetComponent<BirdMove>();
@@ -50,6 +53,14 @@ public class BirdAttack1 : MonoBehaviour
         theRB = GetComponent<Rigidbody2D>();
         Physics2D.IgnoreCollision(birdCol, edge, true);
         Hp *= playerManager.monsterHealth;
+    }
+    public void SetAFalse()//将攻击动画关闭函数
+    {
+        _Animator.SetBool("isAttacking", false);
+    }
+    public void SetHFalse()//将受击动画关闭函数
+    {
+        _Animator.SetBool("isHited", false);
     }
     private void Update()
     {
@@ -94,6 +105,8 @@ public class BirdAttack1 : MonoBehaviour
                 Physics2D.IgnoreCollision(birdCol, playerCol, false);
                 theRB.velocity = direction.normalized * rushSpeed;
                 flag = false;
+                _Animator.SetBool("isAttacking", true);
+                Invoke("SetAFalse", 0.3f);
 
                 //if (Vector3.Distance(transform.position, target.position) <= attackRange)
                 //{
@@ -153,6 +166,8 @@ public class BirdAttack1 : MonoBehaviour
 
     private void GetDamaged()
     {
+        _Animator.SetBool("isHited", true);
+        Invoke("SetHFalse", 0.3f);
         if (Random.Range(0, 100) > playerManager.monsterMissRate)
         {
             if (Random.Range(0, 100) > playerManager.criticalStrikeRate)
