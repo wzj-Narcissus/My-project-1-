@@ -8,8 +8,7 @@ public class Scarecrow : MonoBehaviour
     Collider2D squirrelCol;
     Collider2D edge;
     PlayerManager playerManager;
-
-
+    private Animator _Animator;
 
 
     public float Hp;
@@ -21,6 +20,7 @@ public class Scarecrow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _Animator = GetComponent<Animator>();
         playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
         squirrelCol = GetComponent<Collider2D>();//¹ÖÎïÅö×²Ìå
         playerCol = GameObject.Find("Player").GetComponent<Collider2D>();
@@ -54,9 +54,15 @@ public class Scarecrow : MonoBehaviour
         if (collision.gameObject.tag == "player")
         {
             GetDamaged();
+            Invoke("SetFalse", 0.1f);
+            _Animator.SetBool("isHited", true);
         }
     }
-    private void GetDamaged()
+        public void SetFalse()
+    {
+        _Animator.SetBool("isHited", false);
+    }
+private void GetDamaged()
     {
         if (Random.Range(0, 100) > playerManager.criticalStrikeRate)
         {
