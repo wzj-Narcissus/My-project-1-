@@ -20,7 +20,7 @@ public class PlayEnding : MonoBehaviour
     void Update()
     {
 
-        if(GameObject.FindWithTag("enemy1") == null&& GameObject.FindWithTag("enemy2") == null&& GameObject.FindWithTag("enemy3") == null&&enemySpawner.sign>=4)
+        if(GameObject.FindWithTag("enemy1") == null&& GameObject.FindWithTag("enemy2") == null&& GameObject.FindWithTag("enemy3") == null&&enemySpawner.sign>=4&& GameObject.FindWithTag("Giant") == null)
         {if (flag == 0)
             {
                 Instantiate(prefab);
