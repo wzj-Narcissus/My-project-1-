@@ -632,6 +632,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: scarecrow
       objectReference: {fileID: 0}
+    - target: {fileID: 8491389521220288582, guid: 973672e585e17aa49b1ca48bf878e875, type: 3}
+      propertyPath: isHited
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
