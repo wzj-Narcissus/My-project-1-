@@ -50,7 +50,7 @@ public class Treasurechests1 : MonoBehaviour
 
         getdata();
 
-        x = Random.Range(0, 16);
+        x = Random.Range(0, 18);
 
         Buffs temp;
 
@@ -137,6 +137,17 @@ public class Treasurechests1 : MonoBehaviour
         temp.sometext = "金融危机";
         temp.name = "金币掉落率降低20%";
         mybuffs.Add(temp);
+
+        temp = new Buffs();
+        temp.sometext = "血瓶";
+        temp.name = "获得一点生命值";
+        mybuffs.Add(temp);
+
+        temp = new Buffs();
+        temp.sometext = "护盾";
+        temp.name = "获得一个护盾";
+        mybuffs.Add(temp);
+
 
 
     }
@@ -225,6 +236,13 @@ public class Treasurechests1 : MonoBehaviour
                 getMoneyRate -= 20f;
                 break;
 
+            case 16:
+                health += 1;
+                if(health>maxHealth) health = maxHealth;
+                break;
+            case 17:
+                shield += 1;
+                break;
 
             default:
                 break;
