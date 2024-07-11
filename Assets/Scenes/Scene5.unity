@@ -1089,8 +1089,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy1: {fileID: 4433140868370882081, guid: d75329e47514b69419b5408906a5a11f, type: 3}
-  enemy2: {fileID: 5806838344879384372, guid: a5c38d632145da84c87ee1530cbfc777, type: 3}
-  enemy3: {fileID: 2750006397987699843, guid: 3c0a5ea7389bac8439f6ecae86ee19e4, type: 3}
+  enemy2: {fileID: 5806838344879384372, guid: 46baa4491853ee24ea7ed19f46334ee3, type: 3}
+  enemy3: {fileID: 2750006397987699843, guid: d07d64342ded8844e869506a9d7a32f2, type: 3}
   testenemy: {fileID: 0}
   timetospawn: 7
   minSpawn: {fileID: 789046689}
