@@ -235,7 +235,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 655680201}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be88cb83541923d4e8ce182a3dc52152, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a8e4308bdeac094c87abfd5ceb7bed3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
@@ -245,8 +245,8 @@ MonoBehaviour:
   criticalStrikeRate: 0
   missRate: 0
   shield: 0
-  damageMulti: 1
-  hurtMulti: 1
+  damageMulti: 0
+  hurtMulti: 0
   getMoneyRate: 0
   intShield: 0
   inthurt: 0
