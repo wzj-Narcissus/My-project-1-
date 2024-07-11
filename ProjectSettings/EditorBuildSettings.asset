@@ -59,4 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/wait/wait.unity
     guid: 4a8859313c82c0141aab558d16679b27
+  - enabled: 1
+    path: Assets/Scenes/shop.unity
+    guid: dd92ac7cdbbd2d740becdf4c1780e6f3
   m_configObjects: {}

@@ -31,12 +31,16 @@ public class shop : MonoBehaviour
     public float counttime;
     public GameObject lockmoney;
 
+    public int sign1 = 0;
+    public int sign2 = 0;
+    public int sign3 = 0;
+
     // Start is called before the first frame update
     void Start()
     {
         getdata();
         counttime = 0;
-        money = 0;
+        money = PlayerPrefs.GetInt("16", 0); ;
     }
 
     // Update is called once per frame
@@ -56,14 +60,15 @@ public class shop : MonoBehaviour
 
     public void whenbutton1()
     {
-        if (money > 2)
+        if (money >= 2&&sign1==0)
         {
-
+            sign1 = 1;
             money -= 2;
+            shield++;
             loaddate();
-            SceneManager.LoadScene(nextname);
+
         }
-        else
+        if(money<2)
         {
             lockmoney.SetActive(true);
 
@@ -72,14 +77,19 @@ public class shop : MonoBehaviour
     public void whenbutton2()
     {
 
-        if (money > 5)
+        if (money >=2&&sign2==0)
         {
-
-            money -= 5;
+            sign2 = 1;
+            health++;
+            if (health > maxHealth)
+            {
+                health=maxHealth;
+            }
+            money -= 2;
             loaddate();
-            SceneManager.LoadScene(nextname);
+
         }
-        else
+        if(money < 2)
         {
             lockmoney.SetActive(true);
 
@@ -87,18 +97,38 @@ public class shop : MonoBehaviour
     }
    public void whenbutton3()
     {
-        if (money > 7)
+        if (money >= 8&&sign3==0)
         {
 
-            money -= 7;
+            sign3 = 1;
+            speed = 2f;
+            damage =  1f;
+            criticalStrikeRate = 5f;
+            missRate = 5f;
+            shield = 0f;
+            damageMulti = 1f;
+            hurtMulti = 1f;
+            //‘ˆº” Ù–‘
+            getMoneyRate = 60f;
+            intShield = 0f;
+            inthurt = 0f;
+            monsterHealth = 1f;
+            monsterMissRate = 0f;
+            intMonsterShield = 0f;
+            money -= 8;
             loaddate();
-            SceneManager.LoadScene(nextname);
+  
         }
-        else
+        if(money<8)
         {
             lockmoney.SetActive(true);
 
         }
+    }
+    public void whenbutton4()
+    {
+        PlayerPrefs.SetInt("16",money);
+        SceneManager.LoadScene(nextname);
     }
 
 
@@ -107,7 +137,7 @@ public class shop : MonoBehaviour
         speed = PlayerPrefs.GetFloat("1", 2f);
         damage = PlayerPrefs.GetFloat("2", 1f);
         health = PlayerPrefs.GetFloat("3", 3f);
-        maxHealth = PlayerPrefs.GetFloat("4", 5f);
+        maxHealth = PlayerPrefs.GetFloat("4", 3f);
         criticalStrikeRate = PlayerPrefs.GetFloat("5", 5f);
         missRate = PlayerPrefs.GetFloat("6", 5f);
         shield = PlayerPrefs.GetFloat("7", 0f);
