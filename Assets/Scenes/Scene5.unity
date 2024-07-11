@@ -712,7 +712,7 @@ MonoBehaviour:
   Prefab3: {fileID: 396115257}
   Prefab4: {fileID: 1313453420}
   Prefab5: {fileID: 385343162}
---- !u!114 &445513354
+--- !u!114 &445513335
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -721,7 +721,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 445513325}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fa110b6cfb7160408d302ebd347d233, type: 3}
+  m_Script: {fileID: 11500000, guid: 3b26f5195214a7c4b9dd959c4715be34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene: 
@@ -2417,7 +2417,7 @@ PrefabInstance:
       addedObject: {fileID: 445513334}
     - targetCorrespondingSourceObject: {fileID: 1741170898550041895, guid: 837ac3e60c7b93349952160bda27d1b6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 445513354}
+      addedObject: {fileID: 445513335}
   m_SourcePrefab: {fileID: 100100000, guid: 837ac3e60c7b93349952160bda27d1b6, type: 3}
 --- !u!1001 &3239736253351965464
 PrefabInstance:
