@@ -7,7 +7,7 @@ public class DogAttack : MonoBehaviour
     Collider2D playerCol;
     Collider2D dogCol;
     Collider2D edge;
-
+    private Animator _Animator;
 
     PlayerManager playerManager;
 
@@ -30,9 +30,17 @@ public class DogAttack : MonoBehaviour
     //private float nextAttackTime = 0.0f; // 下次可以攻击的时间
 
     public float Hp;
-
+    public void SetAFalse()//将攻击动画关闭函数
+    {
+        _Animator.SetBool("isAttacking", false);
+    }
+    public void SetHFalse()//将受击动画关闭函数
+    {
+        _Animator.SetBool("isHited", false);
+    }
     private void Awake()
     {
+        _Animator = GetComponent<Animator>();
         target = GameObject.Find("Player").transform;
         flag = false;
 
@@ -69,7 +77,7 @@ public class DogAttack : MonoBehaviour
                 hasRushTime = rushTime;
                 direction = new Vector2(playerManager.transform.position.x - transform.position.x, playerManager.transform.position.y - transform.position.y);
                 Physics2D.IgnoreCollision(dogCol, playerCol, false);
-                theRB.velocity = direction.normalized * rushSpeed;
+                theRB.velocity = direction.normalized * rushSpeed*2;
                 flag = false;
 
                 //if (Vector3.Distance(transform.position, target.position) <= attackRange)
@@ -110,6 +118,8 @@ public class DogAttack : MonoBehaviour
             else 
             { 
                 playerManager.GetDamaged(1+playerManager.inthurt);
+                _Animator.SetBool("isAttacking", true);
+                Invoke("SetAFalse", 0.5f);
                 healthTime = 0.5f;
             }
             //Debug.Log("11");
@@ -118,8 +128,10 @@ public class DogAttack : MonoBehaviour
         {
             Debug.Log("1");
             GetDamaged();
+            _Animator.SetBool("isHited", true);
+            Invoke("SetHFalse", 0.2f);
             flag = true;
-            hasGetDamageTime = 0.5f;
+            hasGetDamageTime = 0.2f;
         }
     }
 

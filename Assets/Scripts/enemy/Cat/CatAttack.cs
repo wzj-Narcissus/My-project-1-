@@ -7,7 +7,7 @@ public class CatAttack : MonoBehaviour
     Collider2D playerCol;
     Collider2D birdCol;
     Collider2D edge;
-
+    private Animator _Animator;
 
     PlayerManager playerManager;
 
@@ -33,8 +33,17 @@ public class CatAttack : MonoBehaviour
 
     public float Hp;
 
+    public void SetAFalse()//将攻击动画关闭函数
+    {
+        _Animator.SetBool("isAttacking", false);
+    }
+    public void SetHFalse()//将受击动画关闭函数
+    {
+        _Animator.SetBool("isHited", false);
+    }
     private void Awake()
     {
+        _Animator = GetComponent<Animator>();
         target = GameObject.Find("Player").transform;
         flag = false;
         
@@ -103,6 +112,8 @@ public class CatAttack : MonoBehaviour
                 direction = new Vector2(playerManager.transform.position.x - transform.position.x, playerManager.transform.position.y - transform.position.y);
                 Physics2D.IgnoreCollision(birdCol, playerCol, false);
                 theRB.velocity = direction.normalized * rushSpeed;
+                _Animator.SetBool("isAttacking", true);
+                Invoke("SetAFalse", 0.5f);
                 flag = false;
 
                 //if (Vector3.Distance(transform.position, target.position) <= attackRange)
@@ -142,7 +153,7 @@ public class CatAttack : MonoBehaviour
             }
             else
             {
-                playerManager.GetDamaged(1.5f + playerManager.inthurt);
+                playerManager.GetDamaged(1f + playerManager.inthurt);
                 healthTime = 1f;
                 //Debug.Log("11");
             }
@@ -163,6 +174,8 @@ public class CatAttack : MonoBehaviour
 
     private void GetDamaged()
     {
+        _Animator.SetBool("isHited", true);
+        Invoke("SetHFalse", 0.5f);
         if (Random.Range(0, 100) > playerManager.monsterMissRate)
         {
             if (Random.Range(0, 100) > playerManager.criticalStrikeRate)
