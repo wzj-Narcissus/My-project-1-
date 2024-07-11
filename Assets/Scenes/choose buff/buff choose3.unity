@@ -1212,7 +1212,7 @@ MonoBehaviour:
   monsterHealth: 0
   monsterMissRate: 0
   intMonsterShield: 0
-  nextname: Main menu
+  nextname: Scene5
   buttons:
   - {fileID: 1469011936}
   - {fileID: 1579599363}
