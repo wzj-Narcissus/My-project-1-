@@ -67,7 +67,7 @@ public class Treasurechests : MonoBehaviour
 
         temp = new Buffs();
         temp.sometext = "暴击率";
-        temp.name = "暴击率减少20%";
+        temp.name = "暴击率减少10%";
         mybuffs.Add(temp);
 
 
@@ -78,7 +78,7 @@ public class Treasurechests : MonoBehaviour
 
         temp = new Buffs();
         temp.sometext = "闪避率";
-        temp.name = "闪避率减少15%";
+        temp.name = "闪避率减少10%";
         mybuffs.Add(temp);
 
 
@@ -101,12 +101,12 @@ public class Treasurechests : MonoBehaviour
 
         temp = new Buffs();
         temp.sometext = "风险";
-        temp.name = "收到的伤害减少0.5点，同时造成的碰撞伤害减少0.5点、速度减少0.5点,造成伤害最少为0.5,减少伤害最多为0.5点";
+        temp.name = "收到的伤害减少0.5点，同时造成的碰撞伤害减少0.5点,造成伤害最少为0.5,减少伤害最多为0.5点";
         mybuffs.Add(temp);
 
         temp = new Buffs();
         temp.sometext = "风险";
-        temp.name = "移动速度提高3点，同时收到的伤害变为原来的2倍";
+        temp.name = "移动速度提高2点，同时收到的伤害变为原来的2倍";
         mybuffs.Add(temp);
 
         temp = new Buffs();
@@ -116,12 +116,12 @@ public class Treasurechests : MonoBehaviour
 
         temp = new Buffs();
         temp.sometext = "怪物暴动";
-        temp.name = "怪物血量提高50%";
+        temp.name = "怪物血量提高20%";
         mybuffs.Add(temp);
 
         temp = new Buffs();
         temp.sometext = "怪物暴动";
-        temp.name = "怪物闪避率提升20%";
+        temp.name = "怪物闪避率提升10%";
         mybuffs.Add(temp);
 
 
@@ -182,13 +182,13 @@ public class Treasurechests : MonoBehaviour
                 criticalStrikeRate += 20f;
                 break;
             case 2:
-                criticalStrikeRate -= 20f;
+                criticalStrikeRate -= 10f;
                 break;
             case 3:
                 missRate += 15f;
                 break;
             case 4:
-                missRate -= 15f;
+                missRate -= 10f;
                 break;
             case 5:
                 speed += 0.5f;
@@ -202,22 +202,21 @@ public class Treasurechests : MonoBehaviour
                 hurtMulti += 1;
                 break;
             case 8:
-                speed -= 0.5f;
                 hurtMulti *= 0.5f;
                 damageMulti *= 0.5f;
                 break;
             case 9:
-                speed += 3f;
+                speed += 2f;
                 hurtMulti *= 2;
                 break;
             case 10:
                 inthurt += 0.5f;
                 break;
             case 11:
-                monsterMissRate += 0.5f;
+                monsterHealth += 0.2f;
                 break;
             case 12:
-                monsterMissRate += 0.2f;
+                monsterMissRate += 0.1f;
                 break;
             case 13:
                 getMoneyRate -= 20f;
