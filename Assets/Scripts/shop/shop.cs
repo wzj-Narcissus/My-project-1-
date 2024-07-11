@@ -108,6 +108,7 @@ public class shop : MonoBehaviour
             shield = 0f;
             damageMulti = 1f;
             hurtMulti = 1f;
+            maxHealth = 3;
             //‘ˆº” Ù–‘
             getMoneyRate = 60f;
             intShield = 0f;
