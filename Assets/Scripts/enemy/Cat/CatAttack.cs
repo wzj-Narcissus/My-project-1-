@@ -142,7 +142,7 @@ public class CatAttack : MonoBehaviour
             }
             else
             {
-                playerManager.GetDamaged(1.5f + playerManager.inthurt);
+                playerManager.GetDamaged(1f + playerManager.inthurt);
                 healthTime = 1f;
                 //Debug.Log("11");
             }
