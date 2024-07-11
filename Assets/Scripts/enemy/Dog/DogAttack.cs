@@ -117,7 +117,7 @@ public class DogAttack : MonoBehaviour
             }
             else 
             { 
-                playerManager.GetDamaged(1+playerManager.inthurt);
+                playerManager.GetDamaged(0.5f+playerManager.inthurt);
                 _Animator.SetBool("isAttacking", true);
                 Invoke("SetAFalse", 0.5f);
                 healthTime = 0.5f;
