@@ -28,6 +28,7 @@ public class Giant : MonoBehaviour
         movekind = 1;
         _Animator = GetComponent<Animator>();
         _Animator.SetBool("move1",true);
+        if (Hp <= 0) Destroy(gameObject);
     }
 
     // Update is called once per frame
@@ -48,7 +49,7 @@ public class Giant : MonoBehaviour
             beingtime = 0;
         }
 
-
+        if (Hp <= 0) Destroy(gameObject);
     }
 
 

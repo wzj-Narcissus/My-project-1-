@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1661647165225513194}
   m_Layer: 0
   m_Name: AngrySquirrel
-  m_TagString: enemy2
+  m_TagString: enemy5
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

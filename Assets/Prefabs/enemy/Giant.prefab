@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4798014641008349770}
   - component: {fileID: 6006948358598238938}
   - component: {fileID: 5815003422359137818}
+  - component: {fileID: 5568267638447001755}
   m_Layer: 0
   m_Name: Giant
   m_TagString: Giant
@@ -104,7 +105,7 @@ MonoBehaviour:
   lefthand: {fileID: 7002852454055292375}
   righthand: {fileID: 8630784780726907069}
   beingtime: 0
-  time1: 5
+  time1: 10
   time2: 10
   movekind: 0
 --- !u!95 &5815003422359137818
@@ -128,6 +129,28 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5568267638447001755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4832558970354684037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9143c696312904aad4228b888cf895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hurtproject: {fileID: 0}
+  fly: {fileID: 4212813029962172767, guid: 5fe1bf282aa81704cac7429e3e935c31, type: 3}
+  minSpawn1: {fileID: 0}
+  maxSpawn1: {fileID: 0}
+  minSpawn2: {fileID: 0}
+  maxSpawn2: {fileID: 0}
+  beingtime1: 0
+  beingtime2: 0
+  attacktime1: 8
+  attacktime2: 8
 --- !u!1 &7002852454055292375
 GameObject:
   m_ObjectHideFlags: 0

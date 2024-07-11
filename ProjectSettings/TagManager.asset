@@ -12,6 +12,7 @@ TagManager:
   - Gaint
   - Giant
   - enemy3
+  - Hp
   layers:
   - Default
   - TransparentFX
