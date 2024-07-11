@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SquirrelMove : MonoBehaviour
 {
+    private SpriteRenderer _Sr;//设置渲染器变量
     //DogAttack attack;
     public float distance;
     Rigidbody2D theRB;
@@ -11,11 +12,23 @@ public class SquirrelMove : MonoBehaviour
     public float speed ; // 接近目标的速度
     private void Awake()
     {
+        _Sr = GetComponent<SpriteRenderer>();//获取渲染器图片
         target = GameObject.Find("Player").transform;
         //attack = GetComponent<DogAttack>();
         theRB = GetComponent<Rigidbody2D>();
     }
+    void Flip(float x)//用于反转图片
+    {
+        if (x < 0)
+        {
+            _Sr.flipX = true;
+        }
 
+        if (x > 0)
+        {
+            _Sr.flipX = false;
+        }
+    }
     private void Update()
     {
         //if (attack.hasRushTime > 0)
@@ -29,7 +42,7 @@ public class SquirrelMove : MonoBehaviour
                 // 计算当前物体与目标物体之间的距离
                 Vector3 direction = target.position - transform.position;
                 distance = direction.magnitude;
-
+                Flip(direction.x);//随时反转图片
 
 
 
