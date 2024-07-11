@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Mainmenu : MonoBehaviour
 {
     public string startname;
+    public string backname;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,10 @@ public class Mainmenu : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(startname);
+    }
+    public void backgame()
+    {
+        SceneManager.LoadScene(backname);
     }
     public void quitgame()
     {

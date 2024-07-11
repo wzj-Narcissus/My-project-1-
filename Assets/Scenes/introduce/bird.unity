@@ -845,7 +845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ee7ce8e31b409c488c03efa9e7e9023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstscene: 
+  firstscene: Main menu
   nextscene: wolf
   prescene: scarecrow
 --- !u!1 &1285876108
