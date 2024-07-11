@@ -851,7 +851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy1: {fileID: 213955407940143, guid: 95a7750de4e6d5c41abf06e4f0bcf870, type: 3}
   enemy2: {fileID: 4433140868370882081, guid: e5d9c635b74fb8b49b063f496fd09488, type: 3}
-  enemy3: {fileID: 2454754100670577600, guid: ea6f60426cc873a498c825b0ebb43275, type: 3}
+  enemy3: {fileID: 2750006397987699843, guid: 4c6b46a74f23184459d3be41303f67b2, type: 3}
   testenemy: {fileID: 0}
   timetospawn: 0.5
   minSpawn: {fileID: 789046689}
