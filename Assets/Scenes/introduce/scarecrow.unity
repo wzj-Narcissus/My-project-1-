@@ -705,7 +705,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "                            \u7A3B \u8349 \u4EBA\n\u521D\u59CB\u80FD\u529B\u503C\uFF1A\r
-    \n\u751F\u547D\uFF1A2                   \u653B\u51FB\uFF1A2 \n\u901F\u5EA6\uFF1A0                  
+    \n\u751F\u547D\uFF1A2                   \u653B\u51FB\uFF1A0 \n\u901F\u5EA6\uFF1A0                  
     \u95EA\u907F\uFF1A0%\r\n\u653B\u51FB\u65B9\u5F0F\uFF1A\n\u65E0"
 --- !u!222 &952235112
 CanvasRenderer:
